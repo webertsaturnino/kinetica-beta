@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Kinetica - Data</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/css/user.css">
+        <link rel="stylesheet" href="resources/plugins/jexcel/css/jquery.jexcel.css">
+        <link rel="stylesheet" href="resources/plugins/fontawesome/css/all.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="0_home.html"><img src="images/logos/u13.svg"></a>
+                </div>
+                <div class="navbar-header hide">
+                    <select id="language" name="language" class="form-control">
+                        <option value="en" translate="en"></option>
+                        <option value="pt-br" translate="pt-br"></option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row content-data">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-left container-data">
+                    <div class="row">
+                        <ul class="nav nav-pills nav-fill mb-3 col-sm" id="steps" role="tablist">
+                            <li class="nav-item col-md-4">
+                                <a class="nav-link active show" id="pills-input-tab" data-toggle="pill" href="#pills-input" role="tab" aria-controls="pills-input" aria-selected="true">1. DATA INPUT</a>
+                            </li>
+                            <li class="nav-item col-md-4">
+                                <a class="not-active nav-link" id="pills-checkout-tab" data-toggle="pill" href="#pills-checkout" role="tab" aria-controls="pills-checkout" aria-selected="false">2. CHECKOUT</a>
+                            </li>
+                            <li class="nav-item col-md-4">
+                                <a class="not-active nav-link" id="pills-results-tab" data-toggle="pill" href="#pills-results" role="tab" aria-controls="pills-results" aria-selected="false">3. RESULTS</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <style>
+                        .not-active {
+                            pointer-events: none;
+                            cursor: default;
+                            text-decoration: none;
+                            color: black;
+                        }
+                        #steps {
+                            padding-top: 20px;
+                        }
+                        #steps > .nav-item > .nav-link {
+                            padding: .25rem .5rem;
+                            font-size: .875rem;
+                            background-color: #bcbcbc;
+                            color: #FFF;
+                        }
+                        #steps > .nav-item > .nav-link.active {
+                           background-color: #333;
+                           pointer-events: none;
+                            cursor: default;
+                        }
+                        .nav-fill .nav-item {
+                            -ms-flex: 1 1 auto;
+                            flex: 1 1 auto;
+                            text-align: center;
+                        }
+                        .mr-2, .mx-2 {
+                            margin-right: .5rem!important;
+                        }
+                        #mytable{
+                           padding-bottom: 24px;
+                        }
+                        .container{
+                            padding-top: 20px; 
+                            padding-bottom: 20px;
+                        }
+                        .erro{
+                            color: #d52525;
+                            font-weight: bold;
+                            display: none;
+                        }
+                        #help{
+                            color: #e4ae1e;
+                            font-weight: bold;
+                            display: none;
+                        }
+                        #errorVolume{
+                            color: #d52525;
+                            font-weight: bold;
+                            display: none;
+                        }
+                    </style>
+                    <div class="row"> 
+                        <div class="col-sm">
+                            <!--<h2 translate="parameters"></h2>-->
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="time_unit" translate="time_unit"></label>
+                                        <div class="col-md-10">
+                                            <select id="time_unit" name="time_unit" class="form-control">
+                                                <option disabled selected value>Select an option</option>
+                                                <option value="h">h</option>
+                                                <option value="min">min</option>
+                                                <option value="s">s</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label class="col-md-12 control-label" for="concentration_unit" translate="concentration_unit"></label>
+                                            <div class="col-md-10">
+                                                <select id="concentration_unit" name="concentration_unit" class="form-control">
+                                                    <option disabled selected value>Select an option</option>
+                                                    <option value="µmol/L" translate="µmol/L"></option>
+                                                    <option value="µmol/mL" translate="µmol/mL"></option>
+                                                    <option value="mmol/L" translate="mmol/L"></option>
+                                                    <option value="mmol/mL" translate="mmol/mL"></option>
+                                                    <option value="pmol/L" translate="pmol/L"></option>
+                                                    <option value="pmol/mL" translate="pmol/mL"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="root_tissue_measure_unit" translate="root_tissue_measure_unit"></label>
+                                        <div class="col-md-10">
+                                            <select id="root_tissue_measure_unit" name="root_tissue_measure_unit" class="form-control">
+                                                <option disabled selected value>Select an option</option>
+                                                <option value="g">g</option>
+                                                <option value="kg">kg</option>
+                                                <option value="µg">µg</option>
+                                                <option value="cg">cg</option>
+                                                <option value="cm(3)">cm&#xB3;</option>
+                                                <option value="cm(2)">cm&#xB2;</option>
+                                                <option value="m(2)">m&#xB2;</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="samples" translate="samples"></label>
+                                        <div class="col-md-8">
+                                            <input id="samples" name="samples" type="number" min="8" placeholder="e.g.: 10" value="8" class="form-control input-md mask-integer">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="system_initial_volume" translate="system_initial_volume"></label>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <input id="system_initial_volume" name="system_initial_volume" class="form-control mask-money" placeholder="e.g.: 20" type="text">
+                                                <span class="input-group-addon addon-volume"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="system_final_volume" translate="system_final_volume"></label>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <input id="system_final_volume" name="system_final_volume" class="form-control mask-money" placeholder="e.g.: 15" type="text">
+                                                <span class="input-group-addon addon-volume"></span>
+                                                <span id="errorVolume">O valor final deve ser menor que inicial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12 control-label" for="root_tissue_measure" translate="root_tissue_measure"></label>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <input id="root_tissue_measure" name="root_tissue_measure" class="form-control mask-money" placeholder="e.g.: 5500" type="text">
+                                                <span class="input-group-addon addon-root_tissue"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div class="form-group ">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block next-button" translate="next"></button>
+                                    </div>
+                                    -->
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="col-sm ">
+                           <!--<h2 translate="data_input"></h2>-->
+                           <p id="erroTabelaColuna0" class="erro"></p>
+                           <p id="erroTabelaColuna1" class="erro"></p>
+                           <p id="erroTabelaColuna2" class="erro"></p>
+                           <p id='help'>Dica de preenchimento da tabela</p>    
+                            <div id="mytable"></div>
+                        </div>
+                        <div class="col-sm">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group ">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block next-button" translate="next"></button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-6 text-right">
+                    <p>
+                        Universidade Federal de Viçosa<br>
+                        Departamento de Solos<br>
+                        Viçosa, MG - Brazil, 36570-900<br>
+                        Phone: +55 (31) 3899-2632
+                    </p>
+                </div>
+                <div class="col-6 text-left">
+                    <a href="https://www.ufv.br/"><img src="images/logos/logo_ufv_u6.png"></a>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="resources/language/translation.js"></script>
+        <script type="text/javascript" src="resources/plugins/jQueryMask/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="resources/plugins/jexcel/js/jquery.jexcel.js"></script>
+        <script type="text/javascript" src="resources/plugins/fontawesome/js/all.js"></script>
+        <script type="text/javascript" src="resources/js/data/1_data.js"></script>
+        <script type="text/javascript" src="resources/js/user.js"></script>
+    </body>
+</html>
