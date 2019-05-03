@@ -90,6 +90,11 @@
                             font-weight: bold;
                             display: none;
                         }
+                        #errorVolumeInicial, #errorRoot{
+                            color: #d52525;
+                            font-weight: bold;
+                            display: none;
+                        }
                     </style>
                     <div class="row"> 
                         <div class="col-sm">
@@ -148,6 +153,7 @@
                                             <div class="input-group">
                                                 <input id="system_initial_volume" name="system_initial_volume" class="form-control mask-money" placeholder="e.g.: 20" type="text">
                                                 <span class="input-group-addon addon-volume"></span>
+                                                <span id="errorVolumeInicial">O valor maior que zero</span>
                                             </div>
                                         </div>
                                     </div>
@@ -167,6 +173,7 @@
                                             <div class="input-group">
                                                 <input id="root_tissue_measure" name="root_tissue_measure" class="form-control mask-money" placeholder="e.g.: 5500" type="text">
                                                 <span class="input-group-addon addon-root_tissue"></span>
+                                                <span id="errorRoot">O valor deve ser maior que zero</span>
                                             </div>
                                         </div>
                                     </div>
@@ -183,6 +190,7 @@
                            <p id="erroTabelaColuna0" class="erro"></p>
                            <p id="erroTabelaColuna1" class="erro"></p>
                            <p id="erroTabelaColuna2" class="erro"></p>
+                           <p id="erroPreenchimentoTabela" class="erro"></p>
                            <p id='help'>Dica de preenchimento da tabela</p>    
                             <div id="mytable"></div>
                         </div>

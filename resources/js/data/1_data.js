@@ -21,6 +21,18 @@ $('#root_tissue_measure_unit').on('change', function() {
     $('.addon-root_tissue').html($(this).val());
 });
 
+$('#root_tissue_measure').on('change', function() {
+    var valor = $(this).val();
+    if(valor <= 0){
+        $(this).val("");
+        $("#errorRoot").fadeIn(700, function(){
+            setTimeout(function(){ 
+                $('#errorRoot').fadeOut();
+            }, 5000);                
+        });  
+    }
+});
+
 $('#time_unit').on('change', function() {
     var und = $(this).val().replace(/.*\/(\w+)/, '$1')
     var cont = "Sampling time"
@@ -38,9 +50,18 @@ $('#system_final_volume').on('change', function() {
             }, 5000);                
         });  
     }
-
 });
-
+$('#system_initial_volume').on('change', function() {
+    var und = $(this).val();
+    if(und <= 0) {    
+        $(this).val("");
+        $("#errorVolumeInicial").fadeIn(700, function(){
+            setTimeout(function(){ 
+                $('#errorVolumeInicial').fadeOut();
+            }, 5000);                
+        });  
+    }
+});
 
 
 //Inicialização da planilha
@@ -193,12 +214,63 @@ function validacao(){
         $("#help").fadeIn(1000);  
         flag = 1;
     }
+
+    //Validacao de campos vazios 
+    if ($("#concentration_unit :selected").val() == '' ||
+        $("#time_unit :selected").val()  == '' ||
+        $("#root_tissue_measure_unit :selected")  == '' ||
+        ($("#system_initial_volume").val().replace(',', '')) == '' ||
+        ($("#system_final_volume").val().replace(',', '')) == '' ||
+        ($("#root_tissue_measure").val().replace(',', '')) == '' 
+        ){
+
+            flag = 1;
+        }
+    //Valida dados primeira coluna (verifica campos vazios)
+    var col = $('#mytable').jexcel('getColumnData', 0);
+    for(var i = 0 ; i < col.length; i++){
+        if(col[i] == ''){
+            flag = 1;
+            preenchimentoTabela();
+            break
+        }
+    }
+    //Valida dados segunda coluna (verifica campos vazios)
+    var col = $('#mytable').jexcel('getColumnData', 1);
+    for(var i = 0 ; i < col.length; i++){
+        if(col[i] == ''){
+            flag = 1;
+            preenchimentoTabela();
+            break
+        }
+    }
+    //Valida dados terceira coluna (verifica campos vazios)
+    var col = $('#mytable').jexcel('getColumnData', 2);
+    for(var i = 0 ; i < col.length; i++){
+        if(col[i] == ''){
+            flag = 1;
+            preenchimentoTabela();
+            break
+        }
+    }
+
+
     if(flag == 1)
         return true;
     else
         return false;
+
 }
-    
+
+function preenchimentoTabela(){
+    var msg = "Erro de preenchimento de tabela, verifique todos os valores de entrada";
+    $("#erroPreenchimentoTabela").html(msg); 
+    $("#erroPreenchimentoTabela").fadeIn(700, function(){
+        setTimeout(function(){ 
+            $('#erroPreenchimentoTabela').fadeOut();
+        }, 5000);                
+    });  
+}
     
 
 
