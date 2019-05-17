@@ -1,0 +1,150 @@
+{
+    "all_results": {
+        "system_common_results": {
+            "system_initial_volume": {
+                "system_value": 19
+            },
+            "system_final_volume": {
+                "system_value": 14
+            },
+            "concentration_unit": {
+                "system_value": "mmol/L"
+            },
+            "root_tissue_measure_unit": {
+                "system_value": "g"
+            },
+            "time_unit": {
+                "system_value": "s"
+            },
+            "matter_quantity_unit": {
+                "system_value": "mmol"
+            },
+            "volume_unit": {
+                "system_value": "L"
+            },
+            "uptake_rate_unit": {
+                "system_value": "mmol/g.s"
+            },
+            "times": {
+                "system_value": "[" 0.0", " 0.5", " 1.0", " 1.5", " 2.0", " 2.5", " 3.0", " 3.5", " 4.0", " 4.5", " 5.0", " 5.5", " 6.0"]"
+            },
+            "concentrations": {
+                "system_value": "[" 397.0", " 346.5", " 296.0", " 245.5", " 195.0", " 144.4", "  94.0", "  80.0", "  66.0", "  54.0", "  41.0", "  40.0", "  42.0"]"
+            },
+            "volumes": {
+                "system_value": "[" 18.990", " 18.565", " 18.160", " 17.715", " 17.310", " 16.895", " 16.460", " 16.045", " 15.630", " 15.215", " 14.810", " 14.405", " 14.000"]"
+            },
+            "quantities": {
+                "system_value": "[" 7539.0300", " 6432.7725", " 5375.3600", " 4349.0325", " 3375.4500", " 2439.6380", " 1547.2400", " 1283.6000", " 1031.5800", "  821.6100", "  607.2100", "  576.2000", "  588.0000"]"
+            },
+            "sampled_volumes": {
+                "system_value": "[" 0.01", " 0.03", " 0.01", " 0.05", " 0.01", " 0.02", " 0.04", " 0.02", " 0.02", " 0.02", " 0.01", " 0.01", " 0.01"]"
+            },
+            "root_tissue_measure": {
+                "system_value": 5500
+            }
+        },
+        "model_specific_results": {
+            "model": {
+                "linear_power": "Linear-Power Model",
+                "linear_exponential": "Linear-Exponential Model",
+                "linear_reciprocal_exponential": "Linear-Reciprocal-Exponential Model"
+            },
+            "linear_points": {
+                "linear_power": 4,
+                "linear_exponential": 6,
+                "linear_reciprocal_exponential": 5
+            },
+            "nonlinear_points": {
+                "linear_power": 8,
+                "linear_exponential": 6,
+                "linear_reciprocal_exponential": 7
+            },
+            "a": {
+                "linear_power": 7496.509,
+                "linear_exponential": 7432.8121071429,
+                "linear_reciprocal_exponential": 7468.2082380952
+            },
+            "b": {
+                "linear_power": -2082.18,
+                "linear_exponential": -1997.2535,
+                "linear_reciprocal_exponential": -2039.7288571429
+            },
+            "c": {
+                "linear_power": 11489.4919887952,
+                "linear_exponential": 4987.2036467015,
+                "linear_reciprocal_exponential": 202.0524182735
+            },
+            "d": {
+                "linear_power": -1.7529456913,
+                "linear_exponential": -0.3925131562,
+                "linear_reciprocal_exponential": 6.2265058056
+            },
+            "r_lin": {
+                "linear_power": 0.9994190482,
+                "linear_exponential": 0.9986459307,
+                "linear_reciprocal_exponential": 0.9990771894
+            },
+            "r_nlin": {
+                "linear_power": 0.9932769721,
+                "linear_exponential": 0.9731368452,
+                "linear_reciprocal_exponential": 0.9899919746
+            },
+            "s_lin": {
+                "linear_power": 45.8272612008,
+                "linear_exponential": 87.0185579249,
+                "linear_reciprocal_exponential": 64.8318225587
+            },
+            "s_nlin": {
+                "linear_power": 84.5498891875,
+                "linear_exponential": 68.5247000347,
+                "linear_reciprocal_exponential": 69.415243859
+            },
+            "s_conj": {
+                "linear_power": 65.1885751942,
+                "linear_exponential": 77.7716289798,
+                "linear_reciprocal_exponential": 67.1235332089
+            },
+            "r_conj": {
+                "linear_power": 0.9963480101,
+                "linear_exponential": 0.985891388,
+                "linear_reciprocal_exponential": 0.994534582
+            },
+            "tm": {
+                "linear_power": 2.9332362086,
+                "linear_exponential": 1.7147561071,
+                "linear_reciprocal_exponential": 3.0820650359
+            },
+            "qm": {
+                "linear_power": 1742.0750110123,
+                "linear_exponential": 2544.1866956606,
+                "linear_reciprocal_exponential": 1523.4997779469
+            },
+            "vm": {
+                "linear_power": 15.3413716976,
+                "linear_exponential": 16.8226713377,
+                "linear_reciprocal_exponential": 14.7825843108
+            },
+            "km": {
+                "linear_power": 113.5540579651,
+                "linear_exponential": 151.2355941925,
+                "linear_reciprocal_exponential": 103.060449101
+            },
+            "vmax": {
+                "linear_power": 0.3786,
+                "linear_exponential": 0.3631,
+                "linear_reciprocal_exponential": 0.3709
+            },
+            "cmin": {
+                "linear_power": 40,
+                "linear_exponential": 40,
+                "linear_reciprocal_exponential": 40
+            },
+            "uptake_rates": {
+                "linear_power": "[0.28723628605924273, 0.2762523008637191, 0.26226636647879525, 0.24385303385958274, 0.21851466496040392, 0.18134941083010114, 0.12201674043763705, 0.09862324839010295, 0.0705361072514419, 0.04155414641100933, 0.0033049898600305805, 0.0, 0.006552777231144175]",
+                "linear_exponential": "[0.2550523841329148, 0.24313195524227146, 0.22825509686676848, 0.20916625987072143, 0.18378170620044296, 0.14828780053006982, 0.09553605980067689, 0.0759482044194224, 0.053265824187366785, 0.030764557871704748, 0.0023851189462361735, 0.0, 0.004739107802119576]",
+                "linear_reciprocal_exponential": "[0.2878128303764183, 0.2775679396033927, 0.2644412667497555, 0.2470178865180982, 0.2227753233797695, 0.186647431680589, 0.12752160148938904, 0.10370441371624407, 0.07472002512911265, 0.04435827847816111, 0.003564274450133014, 0.0, 0.007060697021073943]"
+            }
+        }
+    }
+}

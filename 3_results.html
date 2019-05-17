@@ -29,12 +29,11 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 text-left container-data">
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-12">
                             <h2 translate="parameters">parameters</h2>
-                            <table class="table">
+                            <table class="table" id='tabela1'>
                               <thead class="thead-dark">
                                 <tr>
-                                  <th scope="col">#</th>
                                   <th scope="col">Model</th>
                                   <th scope="col"></th>
                                   <th scope="col">Points</th>
@@ -48,39 +47,18 @@
                               <tbody>
                                 <!--MODELO 1-->
                                 <tr>
-                                  <td ROWSPAN="2" style="vertical-align: middle;">1</td>
-                                  <td ROWSPAN="2" style="vertical-align: middle;">Linear exponencial</td>
-                                  <td>Linear</th>
-                                  <td>3</td>
-                                  <td>Adjusted Eq.</td>
-                                  <td ROWSPAN="2" style="vertical-align: middle;" >SEE</td>
-                                  <td>SEE(c)</td>
-                                  <td>R^2</td>
-                                  <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
-                                </tr>
-                                <tr>
-                                    <td>Exponencial</th>
-                                    <td>7</td>
+                                    
+                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Power</td>
+                                    <td>Linear</td>
+                                    <td>Quant</td>
                                     <td>Adjusted Eq.</td>
-                                    <td>SEE</td>
-                                    <!-- <td>SEE(c)</td> -->
-                                    <td>R^2</td>
-                                    <!-- <td>R^2(c)</td> -->
-                                </tr>
-                                <!--MODELO 2-->
-                                <tr>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">1</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear exponencial</td>
-                                    <td>Linear</th>
-                                    <td>3</td>
-                                    <td>Adjusted Eq.</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE</td>
                                     <td>SEE(c)</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE</td>
                                     <td>R^2</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
                                   </tr>
                                   <tr>
-                                      <td>Exponencial</th>
+                                      <td>Power</td>
                                       <td>7</td>
                                       <td>Adjusted Eq.</td>
                                       <td>SEE</td>
@@ -88,21 +66,20 @@
                                       <td>R^2</td>
                                       <!-- <td>R^2(c)</td> -->
                                   </tr>
-                              </tbody>
-                              <!--MODELO 3-->
-                              <tr>
-                                  <td ROWSPAN="2" style="vertical-align: middle;">1</td>
-                                  <td ROWSPAN="2" style="vertical-align: middle;">Linear exponencial</td>
-                                  <td>Linear</th>
-                                  <td>3</td>
-                                  <td>Adjusted Eq.</td>
-                                  <td ROWSPAN="2" style="vertical-align: middle;">SEE</td>
-                                  <td>SEE(c)</td>
-                                  <td>R^2</td>
-                                  <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
+                                <!--MODELO 2-->
+                                <tr>
+                                    
+                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Exponencial</td>
+                                    <td>Linear</td>
+                                    <td>3</td>
+                                    <td>Adjusted Eq.</td>
+                                    <td>SEE</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE(c)</td>
+                                    <td>R^2</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
                                 </tr>
                                 <tr>
-                                    <td>Exponencial</th>
+                                    <td>Exponential</td>
                                     <td>7</td>
                                     <td>Adjusted Eq.</td>
                                     <td>SEE</td>
@@ -110,12 +87,34 @@
                                     <td>R^2</td>
                                     <!-- <td>R^2(c)</td> -->
                                 </tr>
+                                <!--MODELO 3-->
+                                <tr>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Exponential Reciprocal</td>
+                                    <td>Linear</td>
+                                    <td>3</td>
+                                    <td>Adjusted Eq.</td>
+                                    <td>SEE</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE(c)</td>
+                                    <td>R^2</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Exp-reciprocal</td>
+                                        <td>7</td>
+                                        <td>Adjusted Eq.</td>
+                                        <td>SEE</td>
+                                        <!-- <td>SEE(c)</td> -->
+                                        <td>R^2</td>
+                                        <!-- <td>R^2(c)</td> -->
+                                    </tr>
+                                </tbody>
                             </table>
                             
                            
                         </div>
-                        
-                        <div class="col-lg-3">
+                    </div>
+                    <div class="row">                    
+                        <div class="col-lg-12">
                             <h2 translate="">Grafico</h2>
                             <canvas id="charts" height="500px"></canvas>
                         </div>
@@ -123,21 +122,28 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 translate="parameters">Tabela 2</h2>
-                            <table class="table">
+                            <table class="table" id='tabela2'>
                               <thead class="thead-dark">
                                 <tr>
-                                  <th scope="col">Model</th>
-                                  <th scope="col">Q<sub>m</sub> <br> (unidade) Puxar do json </th>
-                                  <th scope="col">t<sub>m</sub> <br> (unidade) Puxar do json</th>
-                                  <th scope="col">K<sub>m</sub> <br> (unidade) Puxar do json</th>
-                                  <th scope="col">v<sub>max</sub> <br> (unidade) Puxar do json</th>
-                                  <th scope="col">C<sub>min</sub> <br> (unidade) Puxar do json</th>
+                                  <th scope="col" ROWSPAN="2" >Model</th>
+                                  <th scope="col">Q<sub>m</sub> </th>
+                                  <th scope="col">t<sub>m</sub> </th>
+                                  <th scope="col">K<sub>m</sub> </th>
+                                  <th scope="col">v<sub>max</sub> </th>
+                                  <th scope="col">C<sub>min</sub> </th>
                                 </tr>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    </tr>
                               </thead>
                               <tbody>
                                 <!--Linha 1-->
                                 <tr>
-                                  <td>Linear Exponencial</td>
+                                  <td>Linear + Power</td>
                                   <td>12</td>
                                   <td>13</th>
                                   <td>14</td>
@@ -146,7 +152,7 @@
                                   
                                 </tr>
                                 <tr>
-                                  <td>Linear Exponencial</td>
+                                  <td>Linear + Exponencial</td>
                                   <td>12</td>
                                   <td>13</th>
                                   <td>14</td>
@@ -155,14 +161,13 @@
                                   
                                 </tr>
                                 <tr>
-                                    <td>Linear Exponencial</td>
+                                    <td>Linear + Exponential Reciprocal</td>
                                     <td>12</td>
                                     <td>13</th>
                                     <td>14</td>
                                     <td>15</td>
                                     <td >16</td>
-                                    
-                                  </tr>
+                                </tr>
                               
                             </table>
                         </div>
@@ -172,6 +177,8 @@
                 </div>
             </div>
         </div>
+
+
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-6 text-right">
@@ -196,5 +203,9 @@
         <script type="text/javascript" src="resources/plugins/chartjs/Chart.min.js"></script>
         <script type="text/javascript" src="resources/js/data/3_results.js"></script>
         <script type="text/javascript" src="resources/js/user.js"></script>
+
+     
+
+
     </body>
 </html>

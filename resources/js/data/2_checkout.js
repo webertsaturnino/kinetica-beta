@@ -100,3 +100,22 @@
 
     var mychart = new Chart.Scatter($("#chart"), config);
 });
+
+
+$('.next-button').on('click', function() {
+    //alert("OI");
+    if (!window.name)
+        return false;
+
+    var all_results = JSON.parse(window.name);
+    all_results = all_results.all_results;
+
+    console.log(all_results);
+    
+
+    //alert("OI");
+    window.name = JSON.stringify(all_results);
+    window.location = "3_results.html";
+
+    
+});
