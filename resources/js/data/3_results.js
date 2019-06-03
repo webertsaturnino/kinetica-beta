@@ -1,9 +1,11 @@
 $(document).ready(function(){
     //tabela 01
-    if (!window.name)
-        return false;
+    
+//      if (!window.name)
+//        return false;
+//    var all_results = JSON.parse(window.name);
+    var all_results = jsonObject.all_results;
 
-    var all_results = JSON.parse(window.name);
 
     //console.log(window.name);
     var linear_points = all_results.model_specific_results.linear_points;
@@ -104,11 +106,19 @@ $(document).ready(function(){
     
 
     //grafico
-    var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"'));
-    var rates_linear_power = JSON.parse(all_results.model_specific_results.uptake_rates.linear_power.replace(/'/g, '\"'));
-    var rates_linear_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_exponential.replace(/'/g, '\"'));
-    var rates_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_reciprocal_exponential.replace(/'/g, '\"'));
+    //TODO:VOLTAR COM ESSAS LINHAS;
+    //var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"'));
+    //var rates_linear_power = JSON.parse(all_results.model_specific_results.uptake_rates.linear_power.replace(/'/g, '\"'));
+    //var rates_linear_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_exponential.replace(/'/g, '\"'));
+    //var rates_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_reciprocal_exponential.replace(/'/g, '\"'));
+    //var chart_data_linear_power = [], chart_data_linear_exponential = [], chart_data_linear_reciprocal_exponential = [];
+    
+    var concentrations = all_results.system_common_results.concentrations.system_value;
+    var rates_linear_power = JSON.parse(all_results.model_specific_results.uptake_rates.linear_power);
+    var rates_linear_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_exponential);
+    var rates_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_reciprocal_exponential);
     var chart_data_linear_power = [], chart_data_linear_exponential = [], chart_data_linear_reciprocal_exponential = [];
+    
     
     var max_x = concentrations[0], max_y = rates_linear_power[0];
     for (var i = 0; i < concentrations.length; i++) {
@@ -139,7 +149,78 @@ $(document).ready(function(){
     }
     var label_y = all_results.system_common_results.uptake_rate_unit.system_value;
     var label_x = all_results.system_common_results.concentration_unit.system_value;
+    //Grafico 02
+    var linear_Power_x = [], linear_Power_y=[];
+    var linear_exponential_x = [], linear_exponential_y=[];
+    var linear_reciprocal_exponential_x = [], linear_reciprocal_exponential_y=[];
 
+    for (var i = 0; i < concentrations.length; i++) {
+        linear_Power_x.push(parseFloat(concentrations[i]));
+        linear_Power_y.push(rates_linear_power[i]);
+
+        linear_exponential_x.push(parseFloat(concentrations[i]));
+        linear_exponential_y.push(rates_linear_exponential[i]);
+
+        linear_reciprocal_exponential_x.push(parseFloat(concentrations[i]));
+        linear_reciprocal_exponential_y.push(rates_linear_reciprocal_exponential[i]);
+    }
+
+
+
+    var Linear_Power = {
+        x: linear_Power_x,
+        y: linear_Power_y,
+        mode: 'line',
+        name: 'Linear + Power',
+        line: {
+            color: 'rgb(219, 0, 0)',
+            width: 3
+        }
+        };
+    var Linear_Exponential = {
+        x: linear_exponential_x,
+        y: linear_exponential_y,
+        mode: 'line',
+        name: 'Linear + Exponential',
+        line: {
+            color: 'rgb(0, 219, 0)',
+            width: 3
+            }
+        };
+
+    var Linear_Reciprocal_Exponential = {
+        x: linear_reciprocal_exponential_x,
+        y: linear_reciprocal_exponential_y,
+        mode: 'line',
+        name: 'Linear + Reciprocal Exponential ',
+        line: {
+            color: 'rgb(0, 0, 219)',
+            width: 3
+            }
+        };
+
+
+    var layout = {
+        title: 'Line and Scatter Styling',
+        xaxis: {
+            title: 'Concentration (' + label_x + ')',
+            showgrid: false,
+            zeroline: false
+        },
+        yaxis: {
+            title: 'v0 (' + label_y + ')',
+            showline: false
+        },
+        //width: 1000,
+        //height: 1000
+    };
+        
+
+    var data = [Linear_Exponential, Linear_Power, Linear_Reciprocal_Exponential];
+
+    Plotly.newPlot('chartsTest', data, layout, {showSendToCloud: true});
+
+    //Grafico 01
     var config = {
         type: 'line',
         data: {
@@ -208,6 +289,8 @@ $(document).ready(function(){
 
     var mychart = new Chart.Scatter($("#charts"), config);
 
+
+    
 });
 
 

@@ -118,7 +118,7 @@ function getDataInput() {
         data.instant_concentration[i] = Number(data.instant_concentration[i]) || 0;
         data.sampled_volumes[i] = Number(data.sampled_volumes[i]) || 0;
     }
-    console.log(data);
+    //console.log(data);
     return [data];
 
 }
@@ -128,12 +128,15 @@ $('.next-button').on('click', function() {
         return;
     
     $('.loading').show();
+    $.support.cors = true;
     $.ajax({
-        url: "http://kinetica.ufv.br:3000/calculate",
+        url: "https://us-central1-nifty-inkwell-237614.cloudfunctions.net/kinetica",
         type: 'POST',
         data: JSON.stringify(getDataInput()),
-        contentType: "application/json; charset=utf-8",
+        contentType: "application/json; charset=UTF-8",
         dataType: 'json',
+        crossDomain: false,
+        AccessControlAllowOrigin: '*',
         success: function(resp) {
             window.name = JSON.stringify(resp);
             window.location = "2_checkout.html";
