@@ -1,5 +1,5 @@
 ﻿//Máscaras de campos
-$('.mask-money').mask('#,##0.00', {
+$('.mask-money').mask('###0.00', {
     reverse: true
 });
 $('.mask-integer').mask('#0', {
@@ -114,9 +114,9 @@ function getDataInput() {
     };
 
     for (var i = 0; i < data.sampled_volumes.length; i++) {
-        data.time_data[i] = Number(data.time_data[i]) || 0;
-        data.instant_concentration[i] = Number(data.instant_concentration[i]) || 0;
-        data.sampled_volumes[i] = Number(data.sampled_volumes[i]) || 0;
+        data.time_data[i] = Number(data.time_data[i].replace(',', '.')) || 0;
+        data.instant_concentration[i] = Number(data.instant_concentration[i].replace(',', '.')) || 0;
+        data.sampled_volumes[i] = Number(data.sampled_volumes[i].replace(',', '.')) || 0;
     }
     //console.log(data);
     return [data];
@@ -135,8 +135,7 @@ $('.next-button').on('click', function() {
         data: JSON.stringify(getDataInput()),
         contentType: "application/json; charset=UTF-8",
         dataType: 'json',
-        crossDomain: false,
-        AccessControlAllowOrigin: '*',
+        crossDomain: true,
         success: function(resp) {
             window.name = JSON.stringify(resp);
             window.location = "2_checkout.html";
