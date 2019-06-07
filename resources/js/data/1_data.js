@@ -152,6 +152,76 @@ $('.next-button').on('click', function() {
 
 $( document ).ready(function() {
     addCampos();
+    //carregarDadosInicio();
+    console.log(window.name);
+    if (!window.name)
+        return false;
+
+    var all_results = JSON.parse(window.name);
+    //]all_results = all_results.all_results;
+    if (typeof all_results != 'object')
+        return false;
+    console.log(all_results);
+    carregarDadosCache(all_results);
+    
+});
+
+function carregarDadosCache(all_results){
+    var a = all_results.system_common_results.concentration_unit.system_value;
+    $('#concentration_unit option[value="'+a+'"]').attr('selected','selected').change();
+    
+    a = all_results.system_common_results.time_unit.system_value;
+    $('#time_unit option[value="'+a+'"]').attr('selected','selected').change();
+    
+    a = all_results.system_common_results.root_tissue_measure_unit.system_value;
+    $('#root_tissue_measure_unit option[value="'+a+'"]').attr('selected','selected').change();
+    
+    a = all_results.system_common_results.system_initial_volume.system_value;
+    $('#system_initial_volume').val(a);
+    
+    a = all_results.system_common_results.system_final_volume.system_value;
+    $('#system_final_volume').val(a);
+
+    a = all_results.system_common_results.root_tissue_measure.system_value;
+    $('#root_tissue_measure').val(a);
+    
+    var data = [];
+    var times = JSON.parse(all_results.system_common_results.times.system_value.replace(/'/g, '\"'));
+    var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"'));
+    var sampled_volumes = JSON.parse(all_results.system_common_results.sampled_volumes.system_value.replace(/'/g, '\"'));
+    for (var i = 0; i <  times.length; i++) {
+        console.log(times[i]);
+        data.push([
+            times[i],
+            concentrations[i],
+            sampled_volumes[i] 
+        ]);
+    }
+    $('#mytable').jexcel('setData',data);
+
+}
+
+function carregarDadosInicio(){
+    $("#concentration_unit").prop("selectedIndex", 3).change();
+    $("#time_unit").prop("selectedIndex", 3).change();
+    $("#root_tissue_measure_unit").prop("selectedIndex", 1).change();
+    $("#system_initial_volume").val(19);
+    $("#system_final_volume").val(14);
+    $("#root_tissue_measure").val(5500.00);
+    $('#mytable').jexcel('setData',[["0.0", "397.0", "0.01"], ["0.5", "346.5", "0.03"], ["1.0", "296.0", "0.01"], ["1.5", "245.5", "0.05"], ["2.0", "195.0", "0.01"], ["2.5", "144.4", "0.02"], ["3.0", "94.0", "0.04"], ["3.5", "80.0", "0.02"], ["4.0", "66.0", "0.02"], ["4.5", "54.0", "0.02"], ["5.0", "41.0", "0.01"], ["5.5", "40.0", "0.01"], ["6.0", "42.0", "0.01"]]);
+   
+}
+
+$(".clear-button").click(function(){
+    $('#mytable').jexcel('setData',[["", "", ""],["", "", ""],["", "", ""],["", "", ""],["", "", ""],["", "", ""],["", "", ""],["", "", ""]]);
+    $("#col-0").html("Sampling time");
+    $("#col-1").html("Instant Concentration");
+    $("#col-2").html("Sampled volume");
+    $('.addon-volume').html("");
+    $('.addon-root_tissue').html("");
+});
+$(".load-button").click(function(){
+    carregarDadosInicio();    
 });
 
 function validacao(){
@@ -204,7 +274,8 @@ function validacao(){
         soma += Number(col[i]);
     }
     var inicial = Number($("#system_initial_volume").val().replace(',', '')) || 0;
-    if(soma > inicial){
+    var final = Number($("#system_final_volume").val().replace(',', '')) || 0;
+    if(soma > (inicial-final)){
         //Mensagem de texto
         var msg = "Sampled volume error: ";
         $("#erroTabelaColuna2").html(msg); 
@@ -223,8 +294,7 @@ function validacao(){
         $("#root_tissue_measure_unit :selected")  == '' ||
         ($("#system_initial_volume").val().replace(',', '')) == '' ||
         ($("#system_final_volume").val().replace(',', '')) == '' ||
-        ($("#root_tissue_measure").val().replace(',', '')) == '' 
-        ){
+        ($("#root_tissue_measure").val().replace(',', '')) == '' ){
 
             flag = 1;
         }
@@ -233,7 +303,7 @@ function validacao(){
     for(var i = 0 ; i < col.length; i++){
         if(col[i] == ''){
             flag = 1;
-            preenchimentoTabela();
+            erropreenchimentoTabela();
             break
         }
     }
@@ -242,18 +312,18 @@ function validacao(){
     for(var i = 0 ; i < col.length; i++){
         if(col[i] == ''){
             flag = 1;
-            preenchimentoTabela();
+            erropreenchimentoTabela();
             break
         }
     }
     //Valida dados terceira coluna (verifica campos vazios)
     var col = $('#mytable').jexcel('getColumnData', 2);
     for(var i = 0 ; i < col.length; i++){
-        if(col[i] == ''){
-            flag = 1;
-            preenchimentoTabela();
-            break
-        }
+        //if(col[i] == ''){
+        //    flag = 1;
+        //    erropreenchimentoTabela();
+        //    break
+       // }
     }
 
 
@@ -264,7 +334,7 @@ function validacao(){
 
 }
 
-function preenchimentoTabela(){
+function erropreenchimentoTabela(){
     var msg = "Erro de preenchimento de tabela, verifique todos os valores de entrada";
     $("#erroPreenchimentoTabela").html(msg); 
     $("#erroPreenchimentoTabela").fadeIn(700, function(){

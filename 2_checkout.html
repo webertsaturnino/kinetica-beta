@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/user.css">
         <link rel="stylesheet" href="resources/plugins/jexcel/css/jquery.jexcel.css">
+        <script src="resources/plugins/plot.ly/plotly-latest.min.js"></script>
+
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -62,6 +64,9 @@
                                     <div class="form-group ">
                                         <button type="button" class="btn btn-primary btn-lg btn-block next-button" translate="next"></button>
                                     </div>
+                                    <div class="form-group ">
+                                        <button type="button" class="btn btn-primary btn-lg btn-block back-button" translate="back">Back</button>
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>
@@ -71,7 +76,7 @@
                         </div>
                         <div class="col-lg-4">
                             <h2 translate=""></h2>
-                            <canvas id="chart" height="300px"></canvas>
+                            <div id="chartsTest2"></div>
                         </div>
                     </div>
                 </div>

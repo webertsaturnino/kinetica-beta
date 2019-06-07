@@ -23,47 +23,47 @@ $(document).ready(function(){
     //Tabela 1
     //Linha 0
     $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(2)').html(linear_points.linear_power); // Linha 0 coluna 3
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(3)').html("q(t) = " + a.linear_power + " + ( "+b.linear_power+" )t"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(4)').html(s_lin.linear_power); // Linha 0 coluna 5
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(5)').html(s_conj.linear_power); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(6)').html(r_lin.linear_power); // Linha 0 coluna 7
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(7)').html(r_conj.linear_power); // Linha 0 coluna 8
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(3)').html("q(t) = " + a.linear_power.toFixed(2) + " + ( "+b.linear_power.toFixed(2)+" )t"); // Linha 0 coluna 4
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(4)').html(s_lin.linear_power.toFixed(2)); // Linha 0 coluna 5
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(5)').html(s_conj.linear_power.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(6)').html(r_lin.linear_power.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(7)').html(r_conj.linear_power.toFixed(2)); // Linha 0 coluna 8
 
     //Linha 1
     $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(1)').html(nonlinear_points.linear_power); // Linha 0 coluna 3
-    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(2)').html("q(t) = " + c.linear_power + ". t<sup>"+d.linear_power+"</sup>"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(s_nlin.linear_power); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(4)').html(r_nlin.linear_power); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(2)').html("q(t) = " + c.linear_power.toFixed(2) + ". t<sup>"+d.linear_power.toFixed(2)+"</sup>"); // Linha 0 coluna 4
+    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(s_nlin.linear_power.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(4)').html(r_nlin.linear_power.toFixed(2)); // Linha 0 coluna 7
 
     //Linha 2
     $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(2)').html(linear_points.linear_exponential); // Linha 0 coluna 3
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(3)').html("q(t) = " + a.linear_exponential + " + ( "+b.linear_exponential+" )t"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(4)').html(s_lin.linear_exponential); // Linha 0 coluna 5
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(5)').html(s_conj.linear_exponential); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(6)').html(r_lin.linear_exponential); // Linha 0 coluna 7
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(7)').html(r_conj.linear_exponential); // Linha 0 coluna 8
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(3)').html("q(t) = " + a.linear_exponential.toFixed(2) + " + ( "+b.linear_exponential.toFixed(2)+" )t"); // Linha 0 coluna 4
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(4)').html(s_lin.linear_exponential.toFixed(2)); // Linha 0 coluna 5
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(5)').html(s_conj.linear_exponential.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(6)').html(r_lin.linear_exponential.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(7)').html(r_conj.linear_exponential.toFixed(2)); // Linha 0 coluna 8
 
     //Linha 3
     $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(1)').html(nonlinear_points.linear_exponential); // Linha 0 coluna 3
-    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(2)').html("q(t) = " + c.linear_exponential + ". e<sup>"+d.linear_exponential+"t</sup>"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(3)').html(s_nlin.linear_exponential); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(4)').html(r_nlin.linear_exponential); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(2)').html("q(t) = " + c.linear_exponential.toFixed(2) + ". e<sup>"+d.linear_exponential.toFixed(2)+"t</sup>"); // Linha 0 coluna 4
+    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(3)').html(s_nlin.linear_exponential.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(4)').html(r_nlin.linear_exponential.toFixed(2)); // Linha 0 coluna 7
 
 
 
     //Linha 4
     $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(2)').html(linear_points.linear_reciprocal_exponential); // Linha 0 coluna 3
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(3)').html("q(t) = " + a.linear_reciprocal_exponential + " + ( "+b.linear_reciprocal_exponential+" )t"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(4)').html(s_lin.linear_reciprocal_exponential); // Linha 0 coluna 5
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(5)').html(s_conj.linear_reciprocal_exponential); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(6)').html(r_lin.linear_reciprocal_exponential); // Linha 0 coluna 7
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(7)').html(r_conj.linear_reciprocal_exponential); // Linha 0 coluna 8
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(3)').html("q(t) = " + a.linear_reciprocal_exponential.toFixed(2) + " + ( "+b.linear_reciprocal_exponential.toFixed(2)+" )t"); // Linha 0 coluna 4
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(4)').html(s_lin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 5
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(5)').html(s_conj.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(6)').html(r_lin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(7)').html(r_conj.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 8
 
     //Linha 5
     $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(1)').html(nonlinear_points.linear_reciprocal_exponential); // Linha 0 coluna 3
-    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(2)').html("q(t) = " + c.linear_reciprocal_exponential + ". e<sup>"+d.linear_reciprocal_exponential+"/t</sup>"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(3)').html(s_nlin.linear_reciprocal_exponential); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(4)').html(r_nlin.linear_reciprocal_exponential); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(2)').html("q(t) = " + c.linear_reciprocal_exponential.toFixed(2) + ". e<sup>"+d.linear_reciprocal_exponential.toFixed(2)+"/t</sup>"); // Linha 0 coluna 4
+    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(3)').html(s_nlin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(4)').html(r_nlin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 7
 
 
     //TABELA 2
@@ -76,33 +76,33 @@ $(document).ready(function(){
 
     //Coluna 1
     var qm = all_results.model_specific_results.qm;
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(1)').html(qm.linear_power);
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(1)').html(qm.linear_exponential);
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(1)').html(qm.linear_reciprocal_exponential);
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(1)').html(qm.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(1)').html(qm.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(1)').html(qm.linear_reciprocal_exponential.toFixed(3));
 
     //Coluna 2
     var tm = all_results.model_specific_results.tm;
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(2)').html(tm.linear_power);
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(2)').html(tm.linear_exponential);
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(2)').html(tm.linear_reciprocal_exponential);
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(2)').html(tm.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(2)').html(tm.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(2)').html(tm.linear_reciprocal_exponential.toFixed(3));
     
     //Coluna 3
     var km = all_results.model_specific_results.km;
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(3)').html(km.linear_power);
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(km.linear_exponential);
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(3)').html(km.linear_reciprocal_exponential);
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(3)').html(km.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(km.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(3)').html(km.linear_reciprocal_exponential.toFixed(3));
     
     //Coluna 4
     var vmax = all_results.model_specific_results.vmax;
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(4)').html(vmax.linear_power);
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(4)').html(vmax.linear_exponential);
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(4)').html(vmax.linear_reciprocal_exponential);
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(4)').html(vmax.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(4)').html(vmax.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(4)').html(vmax.linear_reciprocal_exponential.toFixed(3));
     
     //Coluna 5
     var cmin = all_results.model_specific_results.cmin;
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(5)').html(cmin.linear_power);
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(5)').html(cmin.linear_exponential);
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(5)').html(cmin.linear_reciprocal_exponential);
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(5)').html(cmin.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(5)').html(cmin.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(5)').html(cmin.linear_reciprocal_exponential.toFixed(3));
     
 
     //grafico
@@ -199,28 +199,117 @@ $(document).ready(function(){
             }
         };
 
-
+    // Grafico Linear_Power
     var layout = {
         title: 'Line and Scatter Styling',
         xaxis: {
             title: 'Concentration (' + label_x + ')',
             showgrid: false,
-            zeroline: false
+            zeroline: true
         },
         yaxis: {
             title: 'v0 (' + label_y + ')',
-            showline: false
+            showgrid: false,
+            zeroline: true
         },
         //width: 1000,
         //height: 1000
+        shapes: [
+            //line horizontal      
+            {type: 'line',
+              x0: 0,
+              y0: (all_results.model_specific_results.vmax.linear_power/2),
+              x1: (all_results.model_specific_results.km.linear_power + all_results.model_specific_results.cmin.linear_power),
+              y1: (all_results.model_specific_results.vmax.linear_power/2),
+              line: {color: 'rgb(55, 128, 191)', width: 3}
+            },
+            //line  vertical
+            {   type: 'line',
+                x0: all_results.model_specific_results.km.linear_power + all_results.model_specific_results.cmin.linear_power,
+                y0: (0),
+                x1: (all_results.model_specific_results.km.linear_power + all_results.model_specific_results.cmin.linear_power),
+                y1: (all_results.model_specific_results.vmax.linear_power/2),
+                line: { color: 'rgb(55, 128, 191)', width: 3 }
+            },
+          ]
     };
-        
+    data = [Linear_Power];
+    Plotly.newPlot('chartsLinear_Power', data, layout, {showSendToCloud: true});
+   
+    
+    
+ // Grafico Linear_Exponential
+ layout = {
+    title: 'Line and Scatter Styling',
+    xaxis: {
+        title: 'Concentration (' + label_x + ')',
+        showgrid: false,
+        zeroline: false
+    },
+    yaxis: {
+        title: 'v0 (' + label_y + ')',
+        showline: false
+    },
+    //width: 1000,
+    //height: 1000
+    shapes: [
+        //line vertical      
+        {type: 'line',
+          x0: 0,
+          y0: (all_results.model_specific_results.vmax.linear_exponential/2),
+          x1: (all_results.model_specific_results.km.linear_exponential + all_results.model_specific_results.cmin.linear_exponential),
+          y1: (all_results.model_specific_results.vmax.linear_exponential/2),
+          line: {color: 'rgb(55, 128, 191)', width: 3}
+        },
+        //line horizontal
+        {   type: 'line',
+            x0: all_results.model_specific_results.km.linear_exponential + all_results.model_specific_results.cmin.linear_exponential,
+            y0: (0),
+            x1: (all_results.model_specific_results.km.linear_exponential + all_results.model_specific_results.cmin.linear_exponential),
+            y1: (all_results.model_specific_results.vmax.linear_exponential/2),
+            line: { color: 'rgb(55, 128, 191)', width: 3 }
+          }
+      ]
+};
+    data = [Linear_Exponential];
+    Plotly.newPlot('chartsLinear_Exponential', data, layout, {showSendToCloud: true});
 
-    var data = [Linear_Exponential, Linear_Power, Linear_Reciprocal_Exponential];
 
-    Plotly.newPlot('chartsTest', data, layout, {showSendToCloud: true});
-
-
+    // Grafico Linear_Reciprocal_Exponential
+ layout = {
+    title: 'Line and Scatter Styling',
+    xaxis: {
+        title: 'Concentration (' + label_x + ')',
+        showgrid: false,
+        zeroline: false
+    },
+    yaxis: {
+        title: 'v0 (' + label_y + ')',
+        showline: false
+    },
+    //width: 1000,
+    //height: 1000
+    shapes: [
+        //line vertical      
+        {type: 'line',
+          x0: 0,
+          y0: (all_results.model_specific_results.vmax.linear_reciprocal_exponential/2),
+          x1: (all_results.model_specific_results.km.linear_reciprocal_exponential + all_results.model_specific_results.cmin.linear_reciprocal_exponential),
+          y1: (all_results.model_specific_results.vmax.linear_reciprocal_exponential/2),
+          line: {color: 'rgb(55, 128, 191)', width: 3}
+        },
+        //line horizontal
+        {   type: 'line',
+            x0: all_results.model_specific_results.km.linear_reciprocal_exponential + all_results.model_specific_results.cmin.linear_reciprocal_exponential,
+            y0: (0),
+            x1: (all_results.model_specific_results.km.linear_reciprocal_exponential + all_results.model_specific_results.cmin.linear_reciprocal_exponential),
+            y1: (all_results.model_specific_results.vmax.linear_reciprocal_exponential/2),
+            line: { color: 'rgb(55, 128, 191)', width: 3 }
+          }
+      ]
+};
+    data = [Linear_Reciprocal_Exponential];
+    Plotly.newPlot('chartsLinear_Reciprocal_Exponential', data, layout, {showSendToCloud: true});
     
 });
 
