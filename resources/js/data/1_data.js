@@ -119,7 +119,7 @@ function getDataInput() {
         data.sampled_volumes[i] = Number(data.sampled_volumes[i].replace(',', '.')) || 0;
     }
     //console.log(data);
-    return [data];
+    return data;
 
 }
 
@@ -136,6 +136,7 @@ $('.next-button').on('click', function() {
         contentType: "application/json; charset=UTF-8",
         dataType: 'json',
         crossDomain: true,
+        
         success: function(resp) {
             window.name = JSON.stringify(resp);
             window.location = "2_checkout.html";
@@ -149,6 +150,8 @@ $('.next-button').on('click', function() {
         }
     });
 });
+
+
 
 $( document ).ready(function() {
     addCampos();
