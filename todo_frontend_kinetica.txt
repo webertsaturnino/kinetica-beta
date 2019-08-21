@@ -1,4 +1,4 @@
-﻿TODO - Front-end Kinetica
+TODO - Front-end Kinetica
 
 Home:
 	Implementar login
@@ -8,16 +8,16 @@ Home:
 Input:
 	Ajustar configurações de preenchiemento da planilha
 	Ajustar proporções elementos
-	ok->Implementar dados de exemplo (checkbox?)
+	OK -> Implementar dados de exemplo (checkbox?)
 
 Checkout:
-	ok->Alterar gráfico para a API Ploty
-	ok->Botão voltar para a tela input
+	OK -> Alterar gráfico para a API Ploty
+	OK -> Botão voltar para a tela input
 	
 Output:
 	Gráficos (subplots) para Michelis-Menten e Funções ajustadas para os modelos de Ruiz
 	Exportar/salvar dados para planilha/csv ou xls
-	ok->Diminuir casas decimais na exibição das equações
+	Diminuir casas decimais na exibição das equações
 	
 	
 	
