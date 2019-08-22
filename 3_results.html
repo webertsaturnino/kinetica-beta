@@ -33,89 +33,56 @@
                 <div class="col-lg-10 col-md-10 col-sm-12 text-left container-data">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 translate="  "></h3>
-                            <h3 translate="Results">Results </h3>
-                            <h5 translate="Models Analysis">Model Analysis</h5>
-                            <table class="table" id='tabela1'>
+                            <h4 translate=></h4>
+                            <h4 translate="Kinects parameter values">Kinetic parameters values</h4>
+                            <h4 translate=></h4>
+                            <table class="table" id='tabela2'>
                               <thead class="thead-light">
                                 <tr>
-                                  <th scope="col">Model</th>
-                                  <th scope="col"></th>
-                                  <th scope="col">Points</th>
-                                  <th scope="col">Adjusted Equation</th>
-                                  <th scope="col">SEE</th>
-                                  <th scope="col">SEE<sub>(c)</sub></th>
-                                  <th scope="col">R<sup>2</sup></th>
-                                  <th scope="col">R<sup>2</sup><sub>(c)</sub></th>
+                                  <th scope="col" ROWSPAN="2" >Model</th>
+                                  <th scope="col">K<sub>m</sub> </th>
+                                  <th scope="col">v<sub>max</sub> </th>
+                                  <th scope="col">C<sub>min</sub> </th>
                                 </tr>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    </tr>
+                                    
                               </thead>
                               <tbody>
-                                <!--MODELO 1-->
+                                <!--Linha 1-->
                                 <tr>
-                                    
-                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Power</td>
-                                    <td>Linear</td>
-                                    <td>Quant</td>
-                                    <td>Adjusted Eq.</td>
-                                    <td>SEE(c)</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE</td>
-                                    <td>R^2</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
-                                  </tr>
-                                  <tr>
-                                      <td>Power</td>
-                                      <td>7</td>
-                                      <td>Adjusted Eq.</td>
-                                      <td>SEE</td>
-                                      <!-- <td>SEE(c)</td> -->
-                                      <td>R^2</td>
-                                      <!-- <td>R^2(c)</td> -->
-                                  </tr>
-                                <!--MODELO 2-->
-                                <tr>
-                                    
-                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Exponencial</td>
-                                    <td>Linear</td>
-                                    <td>3</td>
-                                    <td>Adjusted Eq.</td>
-                                    <td>SEE</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE(c)</td>
-                                    <td>R^2</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
+                                  <td>Linear + Power</td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  
                                 </tr>
                                 <tr>
-                                    <td>Exponential</td>
-                                    <td>7</td>
-                                    <td>Adjusted Equation</td>
-                                    <td>SEE</td>
-                                    <!-- <td>SEE(c)</td> -->
-                                    <td>R^2</td>
-                                    <!-- <td>R^2(c)</td> -->
+                                  <td>Linear + Exponencial</td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  
                                 </tr>
-                                <!--MODELO 3-->
                                 <tr>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Exponential Reciprocal</td>
-                                    <td>Linear</td>
-                                    <td>3</td>
-                                    <td>Adjusted Eq.</td>
-                                    <td>SEE</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE(c)</td>
-                                    <td>R^2</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Exp-reciprocal</td>
-                                        <td>7</td>
-                                        <td>Adjusted Eq.</td>
-                                        <td>SEE</td>
-                                        <!-- <td>SEE(c)</td> -->
-                                        <td>R^2</td>
-                                        <!-- <td>R^2(c)</td> -->
-                                    </tr>
-                                </tbody>
+                                    <td>Linear + Exponential Reciprocal</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Direct Adjust</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                              
                             </table>
-                            
-                           
+                            <h4 translate=" "></h4>
+                                
                         </div>
                     </div>
                     <div class="row">                    
@@ -131,69 +98,17 @@
                             </div>
                         </div>
                         <div class="row">                    
-                                <div class="col-lg-6">
-                                    <h4 translate="">Plots: Linear + Reciprocal-Exponential Model</h4>
-                                    <div id="chartsLinear_Reciprocal_Exponential"></div>
-                                </div>
+                            <div class="col-lg-6">
+                                <h4 translate="">Plots: Linear + Reciprocal-Exponential Model</h4>
+                                <div id="chartsLinear_Reciprocal_Exponential"></div>
                             </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h4 translate=></h4>
-                            <h4 translate="Kinects parameter values">Kinetic parameters values</h4>
-                            <h4 translate=></h4>
-                            <table class="table" id='tabela2'>
-                              <thead class="thead-light">
-                                <tr>
-                                  <th scope="col" ROWSPAN="2" >Model</th>
-                                  <th scope="col">Q<sub>m</sub> </th>
-                                  <th scope="col">t<sub>m</sub> </th>
-                                  <th scope="col">K<sub>m</sub> </th>
-                                  <th scope="col">v<sub>max</sub> </th>
-                                  <th scope="col">C<sub>min</sub> </th>
-                                </tr>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    </tr>
-                                    
-                              </thead>
-                              <tbody>
-                                <!--Linha 1-->
-                                <tr>
-                                  <td>Linear + Power</td>
-                                  <td></td>
-                                  <td></th>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  
-                                </tr>
-                                <tr>
-                                  <td>Linear + Exponencial</td>
-                                  <td></td>
-                                  <td></th>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  
-                                </tr>
-                                <tr>
-                                    <td>Linear + Exponential Reciprocal</td>
-                                    <td></td>
-                                    <td></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                              
-                            </table>
-                            <h4 translate=" "></h4>
-                                
                         </div>
-                    </div>
+                        <div class="row">                    
+                            <div class="col-lg-6">
+                                <h4 translate="">Plots: Direct Adjust</h4>
+                                <div id="chartsDirect_Adjust"></div>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-0">
                 </div>
