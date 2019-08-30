@@ -24,35 +24,7 @@ $(document).ready(function(){
     var r_nlin = all_results.model_specific_results.r_nlin;
     var r_conj = all_results.model_specific_results.r_conj;
 
-    //TABELA 2
-    $("#tabela2").children("thead").children('tr:eq(1)').children('th:eq(0)').html(all_results.system_common_results.concentration_unit.system_value);
-    $("#tabela2").children("thead").children('tr:eq(1)').children('th:eq(1)').html(all_results.system_common_results.uptake_rate_unit.system_value);
-    $("#tabela2").children("thead").children('tr:eq(1)').children('th:eq(2)').html(all_results.system_common_results.concentration_unit.system_value);
-
- 
-    //Coluna 1
-    var km = all_results.model_specific_results.km;
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(1)').html(km.linear_power.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(1)').html(km.linear_exponential.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(1)').html(km.linear_reciprocal_exponential.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(1)').html(km.direct_adjust.toFixed(3));
-    
-    //Coluna 2
-    var vmax = all_results.model_specific_results.vmax;
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(2)').html(vmax.linear_power.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(2)').html(vmax.linear_exponential.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(2)').html(vmax.linear_reciprocal_exponential.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(2)').html(vmax.direct_adjust.toFixed(3));
-    
-    //Coluna 3
-    var cmin = all_results.model_specific_results.cmin;
-    
-    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(3)').html(cmin.linear_power.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(cmin.linear_exponential.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(3)').html(cmin.linear_reciprocal_exponential.toFixed(3));
-    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(3)').html(cmin.direct_adjust.toFixed(3));
-    
-
+   
     //grafico
     //TODO:VOLTAR COM ESSAS LINHAS;
     var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value);
