@@ -6,8 +6,7 @@
     var all_results = JSON.parse(window.name);
     if (typeof all_results != 'object')
         return false;
-    
-    console.log(all_results)
+
 
     all_resultsTabela = all_results;   
     all_results = all_results.all_results;
@@ -93,7 +92,11 @@
 
 function preencheTabela01(all_results){
     //var all_results = jsonObject.all_results;
-     
+
+
+    //console.log(window.name);
+    
+
     var linear_points = all_results.model_specific_results.linear_points;
     var nonlinear_points = all_results.model_specific_results.nonlinear_points;
     var a = all_results.model_specific_results.a;
@@ -178,7 +181,7 @@ $('.next-button').on('click', function() {
     var all_results = JSON.parse(window.name);
     all_results = all_results.all_results;
 
-    console.log(all_results);
+    //console.log(all_results);
     
 
     //alert("OI");
