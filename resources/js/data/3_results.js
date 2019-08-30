@@ -55,7 +55,13 @@ $(document).ready(function(){
 
     //grafico
     //TODO:VOLTAR COM ESSAS LINHAS;
-    var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"'));
+    var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value);
+    var concentrations_linear_power = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_power);
+    var concentrations_linear_exponential = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_exponential);
+    var concentrations_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_reciprocal_exponential);
+
+    
+
     //var rates_linear_power = JSON.parse(all_results.model_specific_results.uptake_rates.linear_power.replace(/'/g, '\"'));
     //var rates_linear_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_exponential.replace(/'/g, '\"'));
     //var rates_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_reciprocal_exponential.replace(/'/g, '\"'));
@@ -126,13 +132,13 @@ $(document).ready(function(){
     var direct_adjust_x = [], direct_adjust_y=[];
 
     for (var i = 0; i < concentrations.length; i++) {
-        linear_Power_x.push(parseFloat(concentrations[i]));
+        linear_Power_x.push(parseFloat(concentrations_linear_power[i]));
         linear_Power_y.push(rates_linear_power[i]);
 
-        linear_exponential_x.push(parseFloat(concentrations[i]));
+        linear_exponential_x.push(parseFloat(concentrations_linear_exponential[i]));
         linear_exponential_y.push(rates_linear_exponential[i]);
 
-        linear_reciprocal_exponential_x.push(parseFloat(concentrations[i]));
+        linear_reciprocal_exponential_x.push(parseFloat(concentrations_linear_reciprocal_exponential[i]));
         linear_reciprocal_exponential_y.push(rates_linear_reciprocal_exponential[i]);
 
         direct_adjust_x.push(parseFloat(concentrations[i]));
@@ -185,7 +191,7 @@ $(document).ready(function(){
             mode: 'line',
             name: 'Direct Adjust',
             line: {
-                color: 'rgb(0, 0, 219)',
+                color: 'rgb(100, 100, 100)',
                 width: 2,
                 shape: 'spline',
                 smoothing: 1.3
