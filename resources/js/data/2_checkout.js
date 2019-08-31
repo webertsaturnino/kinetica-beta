@@ -26,14 +26,16 @@
         'Volumes<br>(' + all_results.system_common_results.volume_unit.system_value + ')'
     ];
 
-    var x = [], y=[],
+    var x = [], y_0=[], y_1=[], y_2=[], y_3=[],
         data = [],
         times = JSON.parse(all_results.system_common_results.times.system_value.replace(/'/g, '\"')),
         concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"')),
         volumes = JSON.parse(all_results.system_common_results.volumes.system_value.replace(/'/g, '\"')),
         sampled_volumes = JSON.parse(all_results.system_common_results.sampled_volumes.system_value.replace(/'/g, '\"')),
         quantities = JSON.parse(all_results.system_common_results.quantities.system_value.replace(/'/g, '\"'));
-   
+        y1 = (all_results.model_specific_results.estimated_quantities.linear_power);
+        y2 = (all_results.model_specific_results.estimated_quantities.linear_exponential);
+        y3 = (all_results.model_specific_results.estimated_quantities.linear_reciprocal_exponential);
         
     for (var i = 0, len = times.length; i < len; i++) {
         data.push([
@@ -41,10 +43,13 @@
             concentrations[i],
             sampled_volumes[i],
             (+quantities[i]).toFixed(2),
-            volumes[i]
+            volumes[i].toFixed(2)
         ]);
         x.push(times[i]);
-        y.push((+quantities[i]).toFixed(2));
+        y_0.push((+quantities[i]).toFixed(2));
+        y_1.push((y1[i]).toFixed(2));
+        y_2.push((y2[i]).toFixed(2));
+        y_3.push((y3[i]).toFixed(2));
 
     }
 
@@ -61,15 +66,48 @@
     //NOVO GRAFICO
     var dados = {
         x: x,
-        y: y,
+        y: y_0,
         mode: 'line',
-        name: 'Linear + Reciprocal Exponential ',
+        name: 'Observed',
         line: {
             color: 'rgb(0, 0, 219)',
+            width: 5
+            }
+        };
+    //Linear + Power
+    var dados1 = {
+        x: x,
+        y: y_1,
+        mode: 'line',
+        name: 'Linear + Power ',
+        line: {
+            color: 'rgb(0, 219, 219)',
+            width: 4
+            }
+        };
+    //Linear + Exponetinal
+    var dados2 = {
+        x: x,
+        y: y_2,
+        mode: 'line',
+        name: 'linear Exponential ',
+        line: {
+            color: 'rgb(219, 219, 0)',
             width: 3
             }
         };
 
+        //linear_reciprocal_exponential
+    var dados3 = {
+        x: x,
+        y: y_3,
+        mode: 'line',
+        name: 'Linear + Reciprocal Exponential ',
+        line: {
+            color: 'rgb(219, 0, 219)',
+            width: 2
+            }
+        };
 
     var layout = {
         title: 'Q(t)-Preview',
@@ -87,7 +125,7 @@
     };
         
    
-    Plotly.newPlot('chartsTest2', [dados], layout, {showSendToCloud: true});
+    Plotly.newPlot('chartsTest2', [dados,dados1,dados2,dados3], layout, {showSendToCloud: true});
     preencheTabela01(all_results);
     preencherTabela02(all_results);
     graficos(all_results);
