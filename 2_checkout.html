@@ -30,48 +30,11 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 text-left container-data">
                     <div class="row">
-                        <div class="col-lg-2">
-                            <h2 translate="parameters"></h2>
-                            <form class="form-horizontal">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" for="system_initial_volume" translate="system_initial_volume"></label>
-                                        <div class="col-md-12">
-                                            <div class="input-group">
-                                                <input id="system_initial_volume" name="system_initial_volume" class="form-control" type="text" disabled>
-                                                <span class="input-group-addon addon-volume"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" for="system_final_volume" translate="system_final_volume"></label>
-                                        <div class="col-md-12">
-                                            <div class="input-group">
-                                                <input id="system_final_volume" name="system_final_volume" class="form-control" type="text" disabled>
-                                                <span class="input-group-addon addon-volume"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12 control-label" for="root_tissue_measure" translate="root_tissue_measure"></label>
-                                        <div class="col-md-12">
-                                            <div class="input-group">
-                                                <input id="root_tissue_measure" name="root_tissue_measure" class="form-control" type="text" disabled>
-                                                <span class="input-group-addon addon-root_tissue"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <button type="button" class="btn btn-primary btn-lg btn-block back-button" translate="back">Back</button>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
                         <div class="col-lg-6 table-container">
                             <h2 translate="data_input"></h2>
                             <div id="table"></div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <h2 translate=""></h2>
                             <div id="chartsTest2"></div>
                         </div>                       
@@ -255,11 +218,12 @@
                         </div>
                     </div>
                     <div class="row">                    
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <h4 translate="">Plots: Linear + Power Model</h4>
                             <div id="chartsLinear_Power"></div>
                         </div>
                     </div>
+                    
                     <div class="row">                    
                         <div class="col-lg-6">
                             <h4 translate="">Plots: Linear + Exponential Model</h4>
@@ -277,6 +241,16 @@
                             <h4 translate="">Plots: Direct Adjust</h4>
                             <div id="chartsDirect_Adjust"></div>
                         </div>
+                    </div>
+                  
+                    <div class="col-lg-2">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group ">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block back-button" translate="back">Back</button>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-0">
