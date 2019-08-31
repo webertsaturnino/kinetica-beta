@@ -105,68 +105,75 @@ function preencheTabela01(all_results){
     var s_lin = all_results.model_specific_results.s_lin;
     var s_nlin = all_results.model_specific_results.s_nlin;
     var s_conj = all_results.model_specific_results.s_conj;
+    console.log(all_results.model_specific_results.s_conj);
     var r_lin = all_results.model_specific_results.r_lin;
     var r_nlin = all_results.model_specific_results.r_nlin;
     var r_conj = all_results.model_specific_results.r_conj;
     var qm = all_results.model_specific_results.qm;
     var tm = all_results.model_specific_results.tm;
-    
-   
+    var rmse_lin_nlin = all_results.model_specific_results.rmse_lin_nlin;
+    var f_stat_lin_nlin = all_results.model_specific_results.f_stat_lin_nlin;
+    var p_f_lin_nlin = all_results.model_specific_results.p_f_lin_nlin;
 
-    $("#tabela1").children("thead").children('tr:eq(0)').children('th:eq(8)').append("<br>" + all_results.system_common_results.matter_quantity_unit.system_value);
-    $("#tabela1").children("thead").children('tr:eq(0)').children('th:eq(9)').append("<br>" + all_results.system_common_results.time_unit.system_value);
+
+    $("#tabela1").children("thead").children('tr:eq(0)').children('th:eq(7)').append("<br>" + all_results.system_common_results.matter_quantity_unit.system_value);
+    $("#tabela1").children("thead").children('tr:eq(0)').children('th:eq(8)').append("<br>" + all_results.system_common_results.time_unit.system_value);
 
     //Tabela 1
     //Linha 0
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(2)').html(linear_points.linear_power); // Linha 0 coluna 3
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(3)').html("q(t) = " + a.linear_power.toFixed(2) + " + ("+b.linear_power.toFixed(2)+") t"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(4)').html(s_lin.linear_power.toFixed(2)); // Linha 0 coluna 5
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(5)').html(s_conj.linear_power.toFixed(2)); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(6)').html(r_lin.linear_power.toFixed(2)); // Linha 0 coluna 7
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(7)').html(r_conj.linear_power.toFixed(2)); // Linha 0 coluna 8
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(8)').html(qm.linear_power.toFixed(3));
-    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(9)').html(tm.linear_power.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(2)').html(linear_points.linear_power); 
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(3)').html("q(t) = " + a.linear_power.toFixed(2) + " + ("+b.linear_power.toFixed(2)+") t");
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(4)').html(s_conj.linear_power.toFixed(2)); 
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(5)').html(r_lin.linear_power.toFixed(2)); 
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(6)').html(r_conj.linear_power.toFixed(2));
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(7)').html(qm.linear_power.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(8)').html(tm.linear_power.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(9)').html(rmse_lin_nlin.linear_power.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(10)').html(f_stat_lin_nlin.linear_power.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(0)').children('td:eq(11)').html(p_f_lin_nlin.linear_power.toFixed(3));
 
+    
 
     //Linha 1
     $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(1)').html(nonlinear_points.linear_power); // Linha 0 coluna 3
     $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(2)').html("q(t) = " + c.linear_power.toFixed(2) + " t<sup>"+d.linear_power.toFixed(2)+"</sup>"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(s_nlin.linear_power.toFixed(2)); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(4)').html(r_nlin.linear_power.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(r_nlin.linear_power.toFixed(2)); // Linha 0 coluna 7
 
     //Linha 2
     $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(2)').html(linear_points.linear_exponential); // Linha 0 coluna 3
     $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(3)').html("q(t) = " + a.linear_exponential.toFixed(2) + " + ("+b.linear_exponential.toFixed(2)+") t"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(4)').html(s_lin.linear_exponential.toFixed(2)); // Linha 0 coluna 5
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(5)').html(s_conj.linear_exponential.toFixed(2)); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(6)').html(r_lin.linear_exponential.toFixed(2)); // Linha 0 coluna 7
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(7)').html(r_conj.linear_exponential.toFixed(2)); // Linha 0 coluna 8
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(8)').html(qm.linear_exponential.toFixed(3));
-    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(9)').html(tm.linear_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(4)').html(s_conj.linear_exponential.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(5)').html(r_lin.linear_exponential.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(6)').html(r_conj.linear_exponential.toFixed(2)); // Linha 0 coluna 8
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(7)').html(qm.linear_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(8)').html(tm.linear_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(9)').html(rmse_lin_nlin.linear_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(10)').html(f_stat_lin_nlin.linear_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(2)').children('td:eq(11)').html(p_f_lin_nlin.linear_exponential.toFixed(3));
 
     //Linha 3
     $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(1)').html(nonlinear_points.linear_exponential); // Linha 0 coluna 3
     $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(2)').html("q(t) = " + c.linear_exponential.toFixed(2) + " e<sup>"+d.linear_exponential.toFixed(2)+"t</sup>"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(3)').html(s_nlin.linear_exponential.toFixed(2)); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(4)').html(r_nlin.linear_exponential.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(3)').children('td:eq(3)').html(r_nlin.linear_exponential.toFixed(2)); // Linha 0 coluna 7
 
 
 
     //Linha 4
     $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(2)').html(linear_points.linear_reciprocal_exponential); // Linha 0 coluna 3
     $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(3)').html("q(t) = " + a.linear_reciprocal_exponential.toFixed(2) + " + ("+b.linear_reciprocal_exponential.toFixed(2)+") t"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(4)').html(s_lin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 5
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(5)').html(s_conj.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(6)').html(r_lin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 7
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(7)').html(r_conj.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 8
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(8)').html(qm.linear_reciprocal_exponential.toFixed(3));
-    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(9)').html(tm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(4)').html(s_conj.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 6
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(5)').html(r_lin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(6)').html(r_conj.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 8
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(7)').html(qm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(8)').html(tm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(9)').html(rmse_lin_nlin.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(10)').html(f_stat_lin_nlin.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela1").children("tbody").children('tr:eq(4)').children('td:eq(11)').html(p_f_lin_nlin.linear_reciprocal_exponential.toFixed(3));
 
     //Linha 5
     $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(1)').html(nonlinear_points.linear_reciprocal_exponential); // Linha 0 coluna 3
     $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(2)').html("q(t) = " + c.linear_reciprocal_exponential.toFixed(2) + " e<sup>"+d.linear_reciprocal_exponential.toFixed(2)+"/t</sup>"); // Linha 0 coluna 4
-    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(3)').html(s_nlin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 6
-    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(4)').html(r_nlin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 7
+    $("#tabela1").children("tbody").children('tr:eq(5)').children('td:eq(3)').html(r_nlin.linear_reciprocal_exponential.toFixed(2)); // Linha 0 coluna 7
 
 
 
@@ -214,6 +221,48 @@ function preencherTabela02(all_results){
     $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(3)').html(cmin.linear_exponential.toFixed(3));
     $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(3)').html(cmin.linear_reciprocal_exponential.toFixed(3));
     $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(3)').html(cmin.direct_adjust.toFixed(3));
+    
+    //coluna 4
+    var rmse = all_results.model_specific_results.rmse_mm;
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(4)').html(rmse.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(4)').html(rmse.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(4)').html(rmse.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(4)').html(rmse.direct_adjust.toFixed(3));
+
+    //coluna 5
+    var r_2_mm = all_results.model_specific_results.r_2_mm;
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(5)').html(r_2_mm.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(5)').html(r_2_mm.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(5)').html(r_2_mm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(5)').html(r_2_mm.direct_adjust.toFixed(3));
+
+    //coluna 6
+    var f_stat_mm = all_results.model_specific_results.f_stat_mm;
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(6)').html(f_stat_mm.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(6)').html(f_stat_mm.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(6)').html(f_stat_mm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(6)').html(f_stat_mm.direct_adjust.toFixed(3));
+
+    //coluna 7
+    var p_f_mm = all_results.model_specific_results.p_f_mm;
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(7)').html(p_f_mm.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(7)').html(p_f_mm.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(7)').html(p_f_mm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(7)').html(p_f_mm.direct_adjust.toFixed(3));
+
+    //coluna 8
+    var aicc_mm = all_results.model_specific_results.aicc_mm;
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(8)').html(aicc_mm.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(8)').html(aicc_mm.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(8)').html(aicc_mm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(8)').html(aicc_mm.direct_adjust.toFixed(3));
+
+    //coluna 9
+    var bic_mm = all_results.model_specific_results.bic_mm;
+    $("#tabela2").children("tbody").children('tr:eq(0)').children('td:eq(9)').html(bic_mm.linear_power.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(1)').children('td:eq(9)').html(bic_mm.linear_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(2)').children('td:eq(9)').html(bic_mm.linear_reciprocal_exponential.toFixed(3));
+    $("#tabela2").children("tbody").children('tr:eq(3)').children('td:eq(9)').html(bic_mm.direct_adjust.toFixed(3));
     
 
 }

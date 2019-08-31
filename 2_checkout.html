@@ -89,13 +89,16 @@
                                   <th scope="col"></th>
                                   <th scope="col">Points</th>
                                   <th scope="col">Adjusted Equation</th>
-                                  <th scope="col">SEE</th>
+
                                   <th scope="col">SEE<sub>(c)</sub></th>
                                   <th scope="col">R<sup>2</sup></th>
                                   <th scope="col">R<sup>2</sup><sub>(c)</sub></th>
-
                                   <th scope="col">Q<sub>m</sub></th>
                                   <th scope="col">t<sub>m</sub></th>
+                                  <th scope="col">RMSE</th>
+                                  <th scope="col">F-stat</th>
+                                  <th scope="col">F-prob</th>
+
                                 </tr>
                               </thead>
                               <tbody>
@@ -103,69 +106,67 @@
                                 <tr>
                                     
                                     <td ROWSPAN="2" style="vertical-align: middle;">Linear + Power</td>
-                                    <td>Linear</td>
+                                    <td>Lin</td>
                                     <td>Quant</td>
                                     <td>Adjusted Eq.</td>
-                                    <td>SEE(c)</td>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">SEE(c)</td>
                                     <td>R^2</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">Q<sub>m</sub></td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">t<sub>m</sub></td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">RMSE</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">F-stat</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">F-prob</td>
                                   </tr>
                                   <tr>
-                                      <td>Power</td>
+                                      <td>Pow</td>
                                       <td>7</td>
                                       <td>Adjusted Eq.</td>
-                                      <td>SEE</td>
-                                      <!-- <td>SEE(c)</td> -->
                                       <td>R^2</td>
-                                      <!-- <td>R^2(c)</td> -->
                                   </tr>
                                 <!--MODELO 2-->
                                 <tr>
                                     
                                     <td ROWSPAN="2" style="vertical-align: middle;">Linear + Exponencial</td>
-                                    <td>Linear</td>
+                                    <td>Lin</td>
                                     <td>3</td>
                                     <td>Adjusted Eq.</td>
-                                    <td>SEE</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">SEE(c)</td>
                                     <td>R^2</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">Q<sub>m</sub></td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">t<sub>m</sub></td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">RMSE</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">F-stat</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">F-prob</td>
                                 </tr>
                                 <tr>
-                                    <td>Exponential</td>
+                                    <td>Exp</td>
                                     <td>7</td>
                                     <td>Adjusted Equation</td>
-                                    <td>SEE</td>
-                                    <!-- <td>SEE(c)</td> -->
                                     <td>R^2</td>
-                                    <!-- <td>R^2(c)</td> -->
+                                   
                                 </tr>
                                 <!--MODELO 3-->
                                 <tr>
-                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Exponential Reciprocal</td>
-                                    <td>Linear</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">Linear + Exp. Reciprocal</td>
+                                    <td>Lin</td>
                                     <td>3</td>
                                     <td>Adjusted Eq.</td>
-                                    <td>SEE</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">SEE(c)</td>
                                     <td>R^2</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">R^2(c)</td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">Q<sub>m</sub></td>
                                     <td ROWSPAN="2" style="vertical-align: middle;">t<sub>m</sub></td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">RMSE</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">F-stat</td>
+                                    <td ROWSPAN="2" style="vertical-align: middle;">F-prob</td>
                                     </tr>
                                     <tr>
-                                        <td>Exp-reciprocal</td>
+                                        <td>Exr</td>
                                         <td>7</td>
-                                        <td>Adjusted Eq.</td>
-                                        <td>SEE</td>
-                                        <!-- <td>SEE(c)</td> -->
+                                        <td>Adjusted Eq.</td>                                      
                                         <td>R^2</td>
-                                        <!-- <td>R^2(c)</td> -->
                                     </tr>
                                 </tbody>
                             </table>
@@ -184,18 +185,30 @@
                                   <th scope="col">K<sub>m</sub> </th>
                                   <th scope="col">v<sub>max</sub> </th>
                                   <th scope="col">C<sub>min</sub> </th>
+                                  <th scope="col" ROWSPAN="2">RMSE </th>
+                                  <th scope="col" ROWSPAN="2">R<sup>2</sup> </th>
+                                  <th scope="col" ROWSPAN="2">F-stat </th>
+                                  <th scope="col" ROWSPAN="2">F-prob </th>
+                                  <th scope="col" ROWSPAN="2">AICc </th>
+                                  <th scope="col" ROWSPAN="2">BIC </th>
                                 </tr>
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    </tr>
+                                    <th scope="col"></th>    
+                                </tr>
                                     
                               </thead>
                               <tbody>
                                 <!--Linha 1-->
                                 <tr>
                                   <td>Linear + Power</td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
@@ -206,16 +219,33 @@
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                  
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
                                 </tr>
                                 <tr>
-                                    <td>Linear + Exponential Reciprocal</td>
+                                    <td>Linear + Exp. Reciprocal</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Direct Adjust</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
