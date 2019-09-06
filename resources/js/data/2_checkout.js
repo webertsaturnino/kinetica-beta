@@ -28,7 +28,7 @@
 
     var x = [], y_0=[], y_1=[], y_2=[], y_3=[],
         data = [],
-        times = JSON.parse(all_results.system_common_results.times.system_value.replace(/'/g, '\"')),
+        times = JSON.parse(all_results.system_common_results.times.system_value),
         concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"')),
         volumes = JSON.parse(all_results.system_common_results.volumes.system_value.replace(/'/g, '\"')),
         sampled_volumes = JSON.parse(all_results.system_common_results.sampled_volumes.system_value.replace(/'/g, '\"')),
@@ -39,9 +39,9 @@
         
     for (var i = 0, len = times.length; i < len; i++) {
         data.push([
-            times[i],
-            concentrations[i],
-            sampled_volumes[i],
+            times[i].toFixed(2),
+            concentrations[i].toFixed(2),
+            sampled_volumes[i].toFixed(2),
             (+quantities[i]).toFixed(2),
             volumes[i].toFixed(2)
         ]);
@@ -56,7 +56,7 @@
     $('#table').jexcel({
         data: data,
         colHeaders: colHeaders,
-        colWidths: [100, 130, 110, 130, 100],
+        colWidths: [130, 130, 130, 130, 130],
         oninsertrow: function(e) {
             $('#samples').val(e.jexcel('getData').length);
         }
@@ -67,11 +67,11 @@
     var dados = {
         x: x,
         y: y_0,
-        mode: 'line',
+        mode: 'markers',
         name: 'Observed',
         line: {
-            color: 'rgb(0, 0, 219)',
-            width: 5
+            color: 'rgb(100, 100, 100)',
+            width: 3
             }
         };
     //Linear + Power
@@ -81,18 +81,18 @@
         mode: 'line',
         name: 'Linear + Power ',
         line: {
-            color: 'rgb(0, 219, 219)',
-            width: 4
+            color: 'rgb(76, 153, 0)',
+            width: 3
             }
         };
-    //Linear + Exponetinal
+    //Linear + Exponentinal
     var dados2 = {
         x: x,
         y: y_2,
         mode: 'line',
-        name: 'linear Exponential ',
+        name: 'Linear + Exponential ',
         line: {
-            color: 'rgb(219, 219, 0)',
+            color: 'rgb(51, 153, 255)',
             width: 3
             }
         };
@@ -102,15 +102,15 @@
         x: x,
         y: y_3,
         mode: 'line',
-        name: 'Linear + Reciprocal Exponential ',
+        name: 'Linear + Reciprocal-Exponential ',
         line: {
-            color: 'rgb(219, 0, 219)',
-            width: 2
+            color: 'rgb(220, 0, 100)',
+            width: 3
             }
         };
 
     var layout = {
-        title: 'Q(t)-Preview',
+        title: 'Q(t)',
         xaxis: {
             title: 'Time ('+all_results.system_common_results.time_unit.system_value+')',
             showgrid: false,
@@ -120,8 +120,13 @@
             title: 'Quantity('+all_results.system_common_results.matter_quantity_unit.system_value +')',
             showline: false
         },
-        //width: 1000,
-        //height: 1000
+        width: 700,
+        height: 500,
+        showlegend: true,
+            legend: {
+              x: 0.6,
+              y: 0.9
+            }
     };
         
    
@@ -406,7 +411,7 @@ function graficos(all_results){
         mode: 'line',
         name: 'Linear + Power',
             line: {
-            color: 'rgb(219, 0, 0)',
+            color: 'rgb(76, 153, 0)',
             width: 2,
             shape: 'spline',
             smoothing: 1.3
@@ -418,7 +423,7 @@ function graficos(all_results){
         mode: 'line',
         name: 'Linear + Exponential',
         line: {
-            color: 'rgb(0, 219, 0)',
+            color: 'rgb(51, 153, 255)',
             width: 2,
             shape: 'spline',
             smoothing: 1.3
@@ -431,7 +436,7 @@ function graficos(all_results){
         mode: 'line',
         name: 'Linear + Reciprocal Exponential ',
         line: {
-            color: 'rgb(0, 0, 219)',
+            color: 'rgb(220, 0, 100)',
             width: 2,
             shape: 'spline',
             smoothing: 1.3
