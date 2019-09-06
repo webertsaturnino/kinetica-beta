@@ -7,7 +7,7 @@
     if (typeof all_results != 'object')
         return false;
     
-    console.log(all_results)
+    //console.log(all_results)
 
     all_resultsTabela = all_results;   
     all_results = all_results.all_results;
@@ -120,8 +120,8 @@
             title: 'Quantity('+all_results.system_common_results.matter_quantity_unit.system_value +')',
             showline: false
         },
-        width: 700,
-        height: 500,
+        //width: 700,
+        //height: 500,
         showlegend: true,
             legend: {
               x: 0.6,
@@ -134,6 +134,10 @@
     preencheTabela01(all_results);
     preencherTabela02(all_results);
     graficos(all_results);
+    grafico_linear_power_model(all_results);
+    grafico_linear_reciprocal_model(all_results);
+    grafico_linear_exponential_model(all_results);
+    grafico_direct_adjust_model(all_results);
 });
 
 function preencheTabela01(all_results){
@@ -148,7 +152,6 @@ function preencheTabela01(all_results){
     var s_lin = all_results.model_specific_results.s_lin;
     var s_nlin = all_results.model_specific_results.s_nlin;
     var s_conj = all_results.model_specific_results.s_conj;
-    console.log(all_results.model_specific_results.s_conj);
     var r_lin = all_results.model_specific_results.r_lin;
     var r_nlin = all_results.model_specific_results.r_nlin;
     var r_conj = all_results.model_specific_results.r_conj;
@@ -319,13 +322,6 @@ function graficos(all_results){
     var concentrations_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_reciprocal_exponential);
 
     
-
-    //var rates_linear_power = JSON.parse(all_results.model_specific_results.uptake_rates.linear_power.replace(/'/g, '\"'));
-    //var rates_linear_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_exponential.replace(/'/g, '\"'));
-    //var rates_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.uptake_rates.linear_reciprocal_exponential.replace(/'/g, '\"'));
-    //var chart_data_linear_power = [], chart_data_linear_exponential = [], chart_data_linear_reciprocal_exponential = [];
-    
-    //var concentrations = all_results.system_common_results.concentrations.system_value;
     var rates_linear_power = JSON.parse(all_results.model_specific_results.estimated_uptake_rates.linear_power);
     var rates_linear_exponential = JSON.parse(all_results.model_specific_results.estimated_uptake_rates.linear_exponential);
     var rates_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.estimated_uptake_rates.linear_reciprocal_exponential);
@@ -417,6 +413,7 @@ function graficos(all_results){
             smoothing: 1.3
         }
         };
+
     var Linear_Exponential = {
         x: linear_exponential_x,
         y: linear_exponential_y,
@@ -470,8 +467,8 @@ function graficos(all_results){
             zeroline: true
         },
         autosize: true,
-        width: 600,
-        height: 450,
+        //width: 600,
+        //height: 450,
         shapes: [
             //line horizontal      
             {type: 'line',
@@ -511,8 +508,8 @@ function graficos(all_results){
     },
     
     autosize: true,
-    width: 600,
-    height: 450,
+    //width: 600,
+    //height: 450,
 
     shapes: [
         //line vertical      
@@ -552,8 +549,8 @@ function graficos(all_results){
     },
     
     autosize: true,
-    width: 600,
-    height: 450,
+    //width: 600,
+    //height: 450,
 
 
     shapes: [
@@ -594,8 +591,8 @@ function graficos(all_results){
     },
     
     autosize: true,
-    width: 600,
-    height: 450,
+    //width: 600,
+    //height: 450,
 
 
     shapes: [
@@ -621,6 +618,517 @@ function graficos(all_results){
     Plotly.newPlot('chartsDirect_Adjust', data, layout, {showSendToCloud: true});
 }
 
+function grafico_linear_power_model(all_results){
+    var aux_x =  JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_x_val.linear_power);
+    var aux_y =JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_y_val.linear_power);
+
+    var lin_burk_x = [], lin_burk_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        lin_burk_x.push(parseFloat(aux_x[i]));
+        lin_burk_y.push(parseFloat(aux_y[i]));
+  }
+
+    var lin_burk = {
+        x: lin_burk_x,
+        y: lin_burk_y,
+        mode: 'line',
+        name: 'Lineweaver-Burk',
+            line: {
+            color: 'rgb(76, 153, 0)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var lin_burk_layout = {
+        title: 'Lineweaver-Burk Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_lp_lin_burk', [lin_burk], lin_burk_layout, {showSendToCloud: true});
+   
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_x_val.linear_power);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_y_val.linear_power);
+    
+    var eadie_hofstee_x = [], eadie_hofstee_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        eadie_hofstee_x.push(parseFloat(aux_x[i]));
+        eadie_hofstee_y.push(parseFloat(aux_y[i]));
+    }
+
+    var eadie_hofstee = {
+        x: eadie_hofstee_x,
+        y: eadie_hofstee_y,
+        mode: 'line',
+        name: 'Eadie-Hofstee',
+            line: {
+            color: 'rgb(76, 153, 0)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var eadie_hofstee_layout = {
+        title: 'Eadie-Hofstee Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_lp_eadie_hofstee', [eadie_hofstee], eadie_hofstee_layout, {showSendToCloud: true});
+        
+    
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_hanes_woolf_x_val.linear_power);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_hanes_woolf_y_val.linear_power);
+
+    var hanes_woolf_x = [], hanes_woolf_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        hanes_woolf_x.push(parseFloat(aux_x[i]));
+        hanes_woolf_y.push(parseFloat(aux_y[i]));
+  }
+
+    var hanes_woolf = {
+        x: hanes_woolf_x,
+        y: hanes_woolf_y,
+        mode: 'line',
+        name: 'Hanes-Woolf',
+            line: {
+            color: 'rgb(76, 153, 0)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var hanes_woolf_layout = {
+        title: 'Hanes-Woolf Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true,
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_lp_hanes_woolf', [hanes_woolf], hanes_woolf_layout, {showSendToCloud: true});
+}
+function grafico_linear_reciprocal_model(all_results){
+    var aux_x =  JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_x_val.linear_reciprocal_exponential);
+    var aux_y =JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_y_val.linear_reciprocal_exponential);
+
+    var lin_burk_x = [], lin_burk_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        lin_burk_x.push(parseFloat(aux_x[i]));
+        lin_burk_y.push(parseFloat(aux_y[i]));
+    }
+
+    var lin_burk = {
+        x: lin_burk_x,
+        y: lin_burk_y,
+        mode: 'line',
+        name: 'Lineweaver-Burk',
+            line: {
+            color: 'rgb(220, 0, 100)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var lin_burk_layout = {
+        title: 'Lineweaver-Burk Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_lr_lin_burk', [lin_burk], lin_burk_layout, {showSendToCloud: true});
+   
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_x_val.linear_reciprocal_exponential);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_y_val.linear_reciprocal_exponential);
+    
+    var eadie_hofstee_x = [], eadie_hofstee_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        eadie_hofstee_x.push(parseFloat(aux_x[i]));
+        eadie_hofstee_y.push(parseFloat(aux_y[i]));
+    }
+
+    var eadie_hofstee = {
+        x: eadie_hofstee_x,
+        y: eadie_hofstee_y,
+        mode: 'line',
+        name: 'Eadie-Hofstee',
+            line: {
+            color: 'rgb(220, 0, 100)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var eadie_hofstee_layout = {
+        title: 'Eadie-Hofstee Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_lr_eadie_hofstee', [eadie_hofstee], eadie_hofstee_layout, {showSendToCloud: true});
+        
+    
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_hanes_woolf_x_val.linear_reciprocal_exponential);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_hanes_woolf_y_val.linear_reciprocal_exponential);
+
+    var hanes_woolf_x = [], hanes_woolf_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        hanes_woolf_x.push(parseFloat(aux_x[i]));
+        hanes_woolf_y.push(parseFloat(aux_y[i]));
+  }
+
+    var hanes_woolf = {
+        x: hanes_woolf_x,
+        y: hanes_woolf_y,
+        mode: 'line',
+        name: 'Hanes-Woolf',
+            line: {
+            color: 'rgb(220, 0, 100)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var hanes_woolf_layout = {
+        title: 'Hanes-Woolf Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true,
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_lr_hanes_woolf', [hanes_woolf], hanes_woolf_layout, {showSendToCloud: true});
+}
+
+function grafico_linear_exponential_model(all_results){
+    var aux_x =  JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_x_val.linear_exponential);
+    var aux_y =JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_y_val.linear_exponential);
+
+    var lin_burk_x = [], lin_burk_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        lin_burk_x.push(parseFloat(aux_x[i]));
+        lin_burk_y.push(parseFloat(aux_y[i]));
+    }
+
+    var lin_burk = {
+        x: lin_burk_x,
+        y: lin_burk_y,
+        mode: 'line',
+        name: 'Lineweaver-Burk',
+            line: {
+            color: 'rgb(51, 153, 255)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var lin_burk_layout = {
+        title: 'Lineweaver-Burk Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_le_lin_burk', [lin_burk], lin_burk_layout, {showSendToCloud: true});
+   
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_x_val.linear_exponential);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_y_val.linear_exponential);
+    
+    var eadie_hofstee_x = [], eadie_hofstee_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        eadie_hofstee_x.push(parseFloat(aux_x[i]));
+        eadie_hofstee_y.push(parseFloat(aux_y[i]));
+    }
+
+    var eadie_hofstee = {
+        x: eadie_hofstee_x,
+        y: eadie_hofstee_y,
+        mode: 'line',
+        name: 'Eadie-Hofstee',
+            line: {
+            color: 'rgb(51, 153, 255)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var eadie_hofstee_layout = {
+        title: 'Eadie-Hofstee Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_le_eadie_hofstee', [eadie_hofstee], eadie_hofstee_layout, {showSendToCloud: true});
+        
+    
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_hanes_woolf_x_val.linear_exponential);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_hanes_woolf_y_val.linear_exponential);
+
+    var hanes_woolf_x = [], hanes_woolf_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        hanes_woolf_x.push(parseFloat(aux_x[i]));
+        hanes_woolf_y.push(parseFloat(aux_y[i]));
+  }
+
+    var hanes_woolf = {
+        x: hanes_woolf_x,
+        y: hanes_woolf_y,
+        mode: 'line',
+        name: 'Hanes-Woolf',
+            line: {
+            color: 'rgb(51, 153, 255)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var hanes_woolf_layout = {
+        title: 'Hanes-Woolf Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true,
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_le_hanes_woolf', [hanes_woolf], hanes_woolf_layout, {showSendToCloud: true});
+}
+
+function grafico_direct_adjust_model(all_results){
+    var aux_x =  JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_x_val.direct_adjust);
+    var aux_y =JSON.parse(all_results.model_specific_results.transf_lineweaver_burk_y_val.direct_adjust);
+
+    var lin_burk_x = [], lin_burk_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        lin_burk_x.push(parseFloat(aux_x[i]));
+        lin_burk_y.push(parseFloat(aux_y[i]));
+    }
+
+    var lin_burk = {
+        x: lin_burk_x,
+        y: lin_burk_y,
+        mode: 'line',
+        name: 'Lineweaver-Burk',
+            line: {
+            color: 'rgb(100, 100, 100)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var lin_burk_layout = {
+        title: 'Lineweaver-Burk Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_da_lin_burk', [lin_burk], lin_burk_layout, {showSendToCloud: true});
+   
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_x_val.direct_adjust);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_eadie_hofstee_y_val.direct_adjust);
+    
+    var eadie_hofstee_x = [], eadie_hofstee_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        eadie_hofstee_x.push(parseFloat(aux_x[i]));
+        eadie_hofstee_y.push(parseFloat(aux_y[i]));
+    }
+
+    var eadie_hofstee = {
+        x: eadie_hofstee_x,
+        y: eadie_hofstee_y,
+        mode: 'line',
+        name: 'Eadie-Hofstee',
+            line: {
+            color: 'rgb(100, 100, 100)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var eadie_hofstee_layout = {
+        title: 'Eadie-Hofstee Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_da_eadie_hofstee', [eadie_hofstee], eadie_hofstee_layout, {showSendToCloud: true});
+        
+    
+    aux_x = []; aux_y=[];
+    aux_x =  JSON.parse(all_results.model_specific_results.transf_hanes_woolf_x_val.direct_adjust);
+    aux_y =JSON.parse(all_results.model_specific_results.transf_hanes_woolf_y_val.direct_adjust);
+
+    var hanes_woolf_x = [], hanes_woolf_y = [];
+    for (var i = 0; i < aux_x.length; i++) {
+        hanes_woolf_x.push(parseFloat(aux_x[i]));
+        hanes_woolf_y.push(parseFloat(aux_y[i]));
+  }
+
+    var hanes_woolf = {
+        x: hanes_woolf_x,
+        y: hanes_woolf_y,
+        mode: 'line',
+        name: 'Hanes-Woolf',
+            line: {
+            color: 'rgb(100, 100, 100)',
+            width: 2,
+            shape: 'spline',
+            smoothing: 1.3
+        }
+    };
+
+    var hanes_woolf_layout = {
+        title: 'Hanes-Woolf Plot',
+        xaxis: {
+            title: 'x',
+            showgrid: false,
+            zeroline: true
+        },
+        yaxis: {
+            title: 'y',
+            showgrid: false,
+            zeroline: true
+        },
+        autosize: true,
+        //width: 600,
+        //height: 450
+    };
+    
+    Plotly.newPlot('charts_da_hanes_woolf', [hanes_woolf], hanes_woolf_layout, {showSendToCloud: true});
+}
+
 $('.back-button').on('click', function() {
     //alert("OI");
     if (!window.name)
@@ -629,7 +1137,7 @@ $('.back-button').on('click', function() {
     var all_results = JSON.parse(window.name);
     all_results = all_results.all_results;
 
-    console.log(all_results);
+    //console.log(all_results);
     
 
     //alert("OI");
