@@ -36,7 +36,8 @@
         y1 = (all_results.model_specific_results.estimated_quantities.linear_power);
         y2 = (all_results.model_specific_results.estimated_quantities.linear_exponential);
         y3 = (all_results.model_specific_results.estimated_quantities.linear_reciprocal_exponential);
-        
+       
+    data.push( colHeaders);
     for (var i = 0, len = times.length; i < len; i++) {
         data.push([
             times[i].toFixed(2),
@@ -55,13 +56,18 @@
 
     $('#table').jexcel({
         data: data,
+        editable: false,
         colHeaders: colHeaders,
-        colWidths: [130, 130, 130, 130, 130],
+        colWidths: [100, 105, 100, 100, 100],
         oninsertrow: function(e) {
             $('#samples').val(e.jexcel('getData').length);
         }
     });
-
+    $('.jexcel_label').hide();
+    $("table[class='jexcel bossanova-ui'] tbody tr").eq(0).css({
+        color: '#495057',
+        backgroundColor: '#e9ecef'
+    });
 
     //NOVO GRAFICO
     var dados = {
@@ -102,7 +108,7 @@
         x: x,
         y: y_3,
         mode: 'line',
-        name: 'Linear + Reciprocal-Exponential ',
+        name: 'Linear + Reciprocal-Exp. ',
         line: {
             color: 'rgb(220, 0, 100)',
             width: 3

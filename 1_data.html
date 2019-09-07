@@ -27,75 +27,9 @@
             <div class="row content-data">
                 <div class="col-lg-12 col-md-12 col-sm-12 text-left container-data">
                     <div class="row">
-                        <ul class="nav nav-pills nav-fill mb-3 col-sm" id="steps" role="tablist">
-                            <li class="nav-item col-md-4">
-                                <a class="nav-link active show" id="pills-input-tab" data-toggle="pill" href="#pills-input" role="tab" aria-controls="pills-input" aria-selected="true">1. DATA INPUT</a>
-                            </li>
-                            <li class="nav-item col-md-4">
-                                <a class="not-active nav-link" id="pills-checkout-tab" data-toggle="pill" href="#pills-checkout" role="tab" aria-controls="pills-checkout" aria-selected="false">2. CHECKOUT</a>
-                            </li>
-                            <li class="nav-item col-md-4">
-                                <a class="not-active nav-link" id="pills-results-tab" data-toggle="pill" href="#pills-results" role="tab" aria-controls="pills-results" aria-selected="false">3. RESULTS</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <style>
-                        .not-active {
-                            pointer-events: none;
-                            cursor: default;
-                            text-decoration: none;
-                            color: black;
-                        }
-                        #steps {
-                            padding-top: 20px;
-                        }
-                        #steps > .nav-item > .nav-link {
-                            padding: .25rem .5rem;
-                            font-size: .875rem;
-                            background-color: #bcbcbc;
-                            color: #FFF;
-                        }
-                        #steps > .nav-item > .nav-link.active {
-                           background-color: #333;
-                           pointer-events: none;
-                            cursor: default;
-                        }
-                        .nav-fill .nav-item {
-                            -ms-flex: 1 1 auto;
-                            flex: 1 1 auto;
-                            text-align: center;
-                        }
-                        .mr-2, .mx-2 {
-                            margin-right: .5rem!important;
-                        }
-                        #mytable{
-                           padding-bottom: 24px;
-                        }
-                        .container{
-                            padding-top: 20px; 
-                            padding-bottom: 20px;
-                        }
-                        .erro{
-                            color: #d52525;
-                            font-weight: bold;
-                            display: none;
-                        }
-                        #help{
-                            color: #e4ae1e;
-                            font-weight: bold;
-                            display: none;
-                        }
-                        #errorVolume{
-                            color: #d52525;
-                            font-weight: bold;
-                            display: none;
-                        }
-                        #errorVolumeInicial, #errorRoot{
-                            color: #d52525;
-                            font-weight: bold;
-                            display: none;
-                        }
-                    </style>
+                    <h1>Cabeçalho</h1>
+
+                    </div> 
                     <div class="row"> 
                         <div class="col-sm">
                             <!--<h2 translate="parameters"></h2>-->
@@ -153,7 +87,7 @@
                                             <div class="input-group">
                                                 <input id="system_initial_volume" name="system_initial_volume" class="form-control mask-money" placeholder="e.g.: 20" type="text">
                                                 <span class="input-group-addon addon-volume"></span>
-                                                <span id="errorVolumeInicial">O valor maior que zero</span>
+                                                <span id="errorVolumeInicial" >O valor maior que zero</span>
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +97,7 @@
                                             <div class="input-group">
                                                 <input id="system_final_volume" name="system_final_volume" class="form-control mask-money" placeholder="e.g.: 15" type="text">
                                                 <span class="input-group-addon addon-volume"></span>
-                                                <span id="errorVolume">O valor final deve ser menor que inicial</span>
+                                                <span id="errorVolume" >O valor final deve ser menor que inicial</span>
                                             </div>
                                         </div>
                                     </div>
@@ -173,7 +107,7 @@
                                             <div class="input-group">
                                                 <input id="root_tissue_measure" name="root_tissue_measure" class="form-control mask-money" placeholder="e.g.: 5500" type="text">
                                                 <span class="input-group-addon addon-root_tissue"></span>
-                                                <span id="errorRoot">O valor deve ser maior que zero</span>
+                                                <span id="errorRoot" >O valor deve ser maior que zero</span>
                                             </div>
                                         </div>
                                     </div>
@@ -185,11 +119,11 @@
                                         <div class="col-md-10">
                                             <button type="button" class="btn btn-primary btn-lg btn-block load-button" translate="Load">Load</button>    
                                         </div>
+                                        <div class="col-md-10">
+                                            <button type="button" class="btn btn-primary btn-lg btn-block next-button" translate="next"></button>  
+                                        </div>
                                     </div>
                                     
-                                    <div class="form-group ">
-                                            
-                                        </div>
                                 </fieldset>
                             </form>
                         </div>
@@ -201,15 +135,6 @@
                            <p id="erroPreenchimentoTabela" class="erro"></p>
                            <p id='help'>Dica de preenchimento da tabela</p>    
                             <div id="mytable"></div>
-                        </div>
-                        <div class="col-sm">
-                            <form class="form-horizontal">
-                                <fieldset>
-                                    <div class="form-group ">
-                                        <button type="button" class="btn btn-primary btn-lg btn-block next-button" translate="next"></button>
-                                    </div>
-                                </fieldset>
-                            </form>
                         </div>
                     </div>
                 </div>

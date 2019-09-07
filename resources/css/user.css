@@ -101,7 +101,9 @@ input, input::-webkit-input-placeholder {
     border-radius: 0px 4px 4px 0px;
 }
 .table-container{
-    overflow: scroll;
+  
+   overflow: auto;
+  
 }
 .loading{
     background-color: rgba(0, 0, 0, 0.75);
@@ -129,4 +131,8 @@ input, input::-webkit-input-placeholder {
 }
 .message p{
     margin-bottom: 0;!important
+}
+
+h1,h2,h3{
+    margin: 30px;
 }

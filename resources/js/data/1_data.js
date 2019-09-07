@@ -156,7 +156,7 @@ $('.next-button').on('click', function() {
 $( document ).ready(function() {
     addCampos();
     //carregarDadosInicio();
-    console.log(window.name);
+    //console.log(window.name);
     if (!window.name)
         return false;
 
@@ -164,12 +164,13 @@ $( document ).ready(function() {
     //]all_results = all_results.all_results;
     if (typeof all_results != 'object')
         return false;
-    console.log(all_results);
+
     carregarDadosCache(all_results);
     
 });
 
 function carregarDadosCache(all_results){
+    //all_results = all_results.all_results;
     var a = all_results.system_common_results.concentration_unit.system_value;
     $('#concentration_unit option[value="'+a+'"]').attr('selected','selected').change();
     
@@ -193,7 +194,7 @@ function carregarDadosCache(all_results){
     var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"'));
     var sampled_volumes = JSON.parse(all_results.system_common_results.sampled_volumes.system_value.replace(/'/g, '\"'));
     for (var i = 0; i <  times.length; i++) {
-        console.log(times[i]);
+        
         data.push([
             times[i],
             concentrations[i],
