@@ -1,20 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Kinetica - Home</title>
+        <title>Kinetica - Data</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/user.css">
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <link rel="stylesheet" href="resources/plugins/jexcel/css/jquery.jexcel.css">
+        <link rel="stylesheet" href="resources/plugins/fontawesome/css/all.css">
     </head>
     <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><img src="images/logos/logo_kinetica_u5.png"></a>
+                    <a class="navbar-brand" href="index.html"><img src="images/logos/u13.svg"></a>
                 </div>
-                 <div class="navbar-header hide">
+                <div class="navbar-header hide">
                     <select id="language" name="language" class="form-control">
                         <option value="en" translate="en"></option>
                         <option value="pt-br" translate="pt-br"></option>
@@ -22,47 +23,51 @@
                 </div>
             </div>
         </nav>
-        <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="https://script.google.com/macros/s/AKfycbwDJTOktz0f1Ri-LIJ5jhHsZttIsiZrA2RtO9qHQBL1zNV0PBA/exec" id="loginForm">
-                <div translate="welcome_text"></div>
-                <div class="form-group ">
-                        <fieldset >
+        <div class="container">
+            <div class="row content-data">
+                <div class="col-lg-3 col-md-3 col-sm-3 text-center"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 text-center container-data">
+                    <div class="row">
+                        <h1>Kinetica</h1>
+                    </div> 
+                    <div class="row"> 
+                        <form class="form-horizontal">
+                            <fieldset >
                                 <div class="form-group ">
                                     <label class="col-md-12 control-label">Name</label>
                                     <div class="col-md-12">
-                                        <input type="text" id="name" name="name" class="form-control"/>
+                                        <input id="name" name="name" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12 control-label">Organization</label>
                                     <div class="col-md-12">
-                                        <input type="text" id="organization" name="organization" class="form-control"/>
+                                        <input id="organization" name="organization" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12 control-label">E-mail</label>
                                     <div class="col-md-12">
-                                        <input type="email" id="email" name="email" class="form-control"/>
+                                        <input id="email" name="email" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="g-recaptcha" data-sitekey="6LdynLkUAAAAAFZUBmgJtUHwrx6qsCnobDtL0LM8"></div>
-                                    <div id="g-recaptcha-error"></div>
+                                    Cap
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" id="start" class="btn btn-primary btn-lg btn-block login-button" translate="start">Start</button>
+                                    <button type="submit" id="start" class="btn btn-primary btn-lg btn-block">Start</button>
                                 </div>
                                 <div class="form-group">
                                     <a>About</a>
                                     <a>How do cite</a>
                                 </div>
                             </fieldset>
+                        </form>
 
-
-
-                    
+                    </div>
                 </div>
-            </form>
+                <div class="col-lg-3 col-md-3 col-sm-3 text-center"></div>  
+            </div>
         </div>
         <footer class="container-fluid">
             <div class="row">
@@ -82,7 +87,10 @@
         <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="resources/language/translation.js"></script>
-        <script type="text/javascript" src="resources/js/data/0_home.js"></script>
+        <script type="text/javascript" src="resources/plugins/jQueryMask/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="resources/plugins/jexcel/js/jquery.jexcel.js"></script>
+        <script type="text/javascript" src="resources/plugins/fontawesome/js/all.js"></script>
+        <script type="text/javascript" src="resources/js/data/1_data.js"></script>
         <script type="text/javascript" src="resources/js/user.js"></script>
     </body>
 </html>
