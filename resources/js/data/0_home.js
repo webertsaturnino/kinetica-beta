@@ -20,29 +20,27 @@
           return false;
       }
 
-    //console.log(name, email, organization);
+   if(grecaptcha.getResponse().length > 1){
+        // References:
+        var $form = $('#loginForm');
+        var $subm = $('#mySubmit');
+        var $impt = $form.find(':input').not(':button, :submit, :reset, :hidden');
 
-   console.log(submitUserForm());
+        // Submit function:
+        $form.submit(function(){
+            $.post($(this).attr('action'), $(this).serialize(), function(response){
+                // On success, clear all inputs;
+                $impt.val('').attr('value','').removeAttr('checked').removeAttr('selected');
+                // Write a confirmation message:
+                alert("Submitted!");
+                // Disable the submit button:
+                $subm.prop('disabled', true);
+                window.location = "1_data.html";
 
-    // References:
-    var $form = $('#loginForm');
-    var $subm = $('#mySubmit');
-    var $impt = $form.find(':input').not(':button, :submit, :reset, :hidden');
-   
-    // Submit function:
-    $form.submit(function(){
-        $.post($(this).attr('action'), $(this).serialize(), function(response){
-            // On success, clear all inputs;
-            $impt.val('').attr('value','').removeAttr('checked').removeAttr('selected');
-            // Write a confirmation message:
-            alert("Submitted!");
-            // Disable the submit button:
-            $subm.prop('disabled', true);
-            window.location = "1_data.html";
-
-        },'json');
-        return false;
-    });
+            },'json');
+            return false;
+        });
+    }   
 
 });
 

@@ -19,7 +19,7 @@
     $(".addon-root_tissue").html(all_results.system_common_results.root_tissue_measure_unit.system_value);
 
     var colHeaders = [
-        'Sampling<br>time<br>(' + all_results.system_common_results.time_unit.system_value + ')',
+        'Sampling<br/>time<br/>(' + all_results.system_common_results.time_unit.system_value + ')',
         'Instant<br>concentration<br>(' + translation['en'][all_results.system_common_results.concentration_unit.system_value] + ')',
         'Sampled<br>volume<br>(' + all_results.system_common_results.volume_unit.system_value + ')',
         'Quantity<br>(' + all_results.system_common_results.matter_quantity_unit.system_value + ')',
@@ -1150,3 +1150,46 @@ $('.back-button').on('click', function() {
     window.name = JSON.stringify(all_results);
     window.location = "1_data.html";
 });
+
+
+$("#download_table").click(function(){
+    $("#table").jexcel("download"); 
+});
+
+$("#download_tabela1").click(function(){
+    $("#tabela1").tableExport(); 
+});
+
+$("#download_tabela2").click(function(){
+    $("#tabela2").tableExport(); 
+});
+$("#download_grafico1").click(function(){
+    Plotly.downloadImage(chartsTest2, {format: 'svg', width: 800, height: 600, filename: 'kinetica_depletion_curves'});
+});
+
+
+$("#download_chartsLinear_Power").click(function(){
+    Plotly.downloadImage(chartsLinear_Power, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_michaelis-menten'});
+});
+
+$("#download_charts_lp_lin_burk").click(function(){
+    Plotly.downloadImage(charts_lp_lin_burk, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_lin_burk'});
+});
+
+$("#download_charts_lp_eadie_hofstee").click(function(){
+    Plotly.downloadImage(charts_lp_eadie_hofstee, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_eadie_hofstee'});
+});
+
+$("#download_charts_lp_hanes_woolf").click(function(){
+    Plotly.downloadImage(charts_lp_hanes_woolf, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_hanes_woolf'});
+});
+
+
+$("#download_all_LE").click(function(){
+    Plotly.downloadImage(chartsLinear_Exponential, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_michaelis-menten'});
+    Plotly.downloadImage(charts_le_lin_burk, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_lin_burk'});
+    Plotly.downloadImage(charts_le_eadie_hofstee, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_eadie_hofstee'});
+    Plotly.downloadImage(charts_le_hanes_woolf, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_hanes_woolf'});
+
+});
+
