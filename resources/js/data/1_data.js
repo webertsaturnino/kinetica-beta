@@ -38,6 +38,8 @@ $('#time_unit').on('change', function() {
     var cont = "Sampling time"
     $("#col-0").html(cont + '<br>(' + und + ')' );
 });
+
+
 $('#system_final_volume').on('change', function() {
     var und = $(this).val();
     var initial_volume = Number($("#system_initial_volume").val().replace(',', '')) || 0;
@@ -51,6 +53,7 @@ $('#system_final_volume').on('change', function() {
         });  
     }
 });
+
 $('#system_initial_volume').on('change', function() {
     var und = $(this).val();
     if(und <= 0) {    
@@ -63,27 +66,10 @@ $('#system_initial_volume').on('change', function() {
     }
 });
 
-
-//Inicialização da planilha
-var data = [],
-    colHeaders = [
-        translation[$("#language :selected").val()]['sampling_time'] || translation['en']['sampling_time'],
-        translation[$("#language :selected").val()]['instant_concentration'] || translation['en']['instant_concentration'],
-        translation[$("#language :selected").val()]['sampled_volume'] || translation['en']['sampled_volume']
-    ];
-
 $('#samples').on('change', function() {
     addCampos();
 });
 
-$('#mytable').jexcel({
-    data: data,
-    colHeaders: colHeaders,
-    colWidths: [150, 200, 170],
-    oninsertrow: function(e) {
-        $('#samples').val(e.jexcel('getData').length);
-    }
-});
 
 function addCampos(){
     var quant = $("#samples").val();
@@ -154,7 +140,27 @@ $('.next-button').on('click', function() {
 
 
 $( document ).ready(function() {
+    //Inicialização da planilha
+    var data = [],
+        colHeaders = [
+            translation[$("#language :selected").val()]['sampling_time'] || translation['en']['sampling_time'],
+            translation[$("#language :selected").val()]['instant_concentration'] || translation['en']['instant_concentration'],
+            translation[$("#language :selected").val()]['sampled_volume'] || translation['en']['sampled_volume']
+        ];
+
+    
+
+    $('#mytable').jexcel({
+        data: data,
+        colHeaders: colHeaders,
+        colWidths: [150, 200, 170],
+        oninsertrow: function(e) {
+            $('#samples').val(e.jexcel('getData').length);
+        }
+    });
+    
     addCampos();
+    
     //carregarDadosInicio();
     //console.log(window.name);
     if (!window.name)

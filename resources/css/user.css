@@ -136,3 +136,8 @@ input, input::-webkit-input-placeholder {
 h1,h2,h3{
     margin: 30px;
 }
+
+.erro{
+     
+     display: none;
+}
