@@ -65,14 +65,16 @@ function verifyCaptcha() {
 }
 
 $("#btn_abount").click(function(){
-    $("#About").show();
+    $("#about").toggle();
 });
 $(".close").click(function(){
-    $("#About").hide();
+    $("#about").hide();
+    $("#htc").hide();
 });
 $("#btn_htc").click(function(){
-    $("#About").show();
+    $("#htc").show();
 });
+
 
 
 /*
