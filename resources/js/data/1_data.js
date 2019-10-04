@@ -240,7 +240,8 @@ $(".clear-button").click(function(){
     $('.addon-volume').html("");
     $('.addon-root_tissue').html("");
 });
-$(".load-button").click(function(){
+$("#load-button").click(function(){
+    
     carregarDadosInicio();    
 });
 

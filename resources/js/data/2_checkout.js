@@ -126,8 +126,8 @@
             title: 'Quantity('+all_results.system_common_results.matter_quantity_unit.system_value +')',
             showline: false
         },
-        //width: 700,
-        //height: 500,
+        width: 700,
+        height: 500,
         showlegend: true,
             legend: {
               x: 0.6,
@@ -137,6 +137,7 @@
         
    
     Plotly.newPlot('chartsTest2', [dados,dados1,dados2,dados3], layout, {showSendToCloud: true});
+    preencheTabela00(colHeaders, data);
     preencheTabela01(all_results);
     preencherTabela02(all_results);
     graficos(all_results);
@@ -146,6 +147,25 @@
     grafico_direct_adjust_model(all_results);
 });
 
+function preencheTabela00(colHeaders, data){
+
+    $("#tabela0").children("thead").children('tr:eq(0)').children('th:eq(0)').html(colHeaders[0]);
+    $("#tabela0").children("thead").children('tr:eq(0)').children('th:eq(1)').html(colHeaders[1]);
+    $("#tabela0").children("thead").children('tr:eq(0)').children('th:eq(2)').html(colHeaders[2]);
+    $("#tabela0").children("thead").children('tr:eq(0)').children('th:eq(3)').html(colHeaders[3]);
+    $("#tabela0").children("thead").children('tr:eq(0)').children('th:eq(4)').html(colHeaders[4]);
+    for(var i = 1; i < data.length; i++){
+        console.log(data[i]);
+        var newRow = $("<tr>");
+        var cols = "";
+        for(var j = 0; j < 5; j++){
+            cols += '<td>'+data[i][j]+'</td>';
+        }
+        newRow.append(cols);
+        $("#tabela0").children("tbody").append(newRow);
+    }
+
+}
 function preencheTabela01(all_results){
     //var all_results = jsonObject.all_results;
      
@@ -1153,7 +1173,8 @@ $('.back-button').on('click', function() {
 
 
 $("#download_table").click(function(){
-    $("#table").jexcel("download"); 
+    //$("#table").jexcel("download");
+    $("#tabela0").tableExport();  
 });
 
 $("#download_tabela1").click(function(){

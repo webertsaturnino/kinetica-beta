@@ -138,7 +138,6 @@ h1,h2,h3{
 }
 
 .erro{
-     
      display: none;
 }
 
@@ -220,6 +219,7 @@ h1,h2,h3{
 
 .alink:hover {
     text-decoration:none;
+    cursor:pointer;
   } 
 .alink:hover {
 text-decoration:underline;
