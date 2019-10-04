@@ -218,20 +218,14 @@ h1,h2,h3{
 
 
 
-#btn_abount:hover {
+.alink:hover {
     text-decoration:none;
   } 
-#btn_abount:hover {
+.alink:hover {
 text-decoration:underline;
 }  
 
-#btn_htc{
+.alink{
     text-align: right;
     justify-content: left;
 }
-#btn_htc:hover {
-    text-decoration:none;
-  } 
-#btn_htc:hover {
-text-decoration:underline;
-}  
