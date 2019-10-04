@@ -63,6 +63,18 @@ function submitUserForm() {
 function verifyCaptcha() {
     document.getElementById('g-recaptcha-error').innerHTML = '';
 }
+
+$("#btn_abount").click(function(){
+    $("#About").show();
+});
+$(".close").click(function(){
+    $("#About").hide();
+});
+$("#btn_htc").click(function(){
+    $("#About").show();
+});
+
+
 /*
 $( document ).ready(function() {
    
