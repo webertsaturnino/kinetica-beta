@@ -1193,3 +1193,10 @@ $("#download_all_LE").click(function(){
 
 });
 
+$( document ).ready(function() {
+    var k_name = sessionStorage.getItem('k_name');
+    var k_email = sessionStorage.getItem('k_email');
+    var k_organization = sessionStorage.getItem('k_organization');
+    if(k_name == null || k_email==null || k_organization == null)
+        window.location = "index.html";
+    });

@@ -35,6 +35,12 @@
                 alert("Submitted!");
                 // Disable the submit button:
                 $subm.prop('disabled', true);
+
+                sessionStorage.setItem('k_name', name);
+                sessionStorage.setItem('k_email', email);
+                sessionStorage.setItem('k_organization', organization);
+
+
                 window.location = "1_data.html";
 
             },'json');
@@ -57,3 +63,8 @@ function submitUserForm() {
 function verifyCaptcha() {
     document.getElementById('g-recaptcha-error').innerHTML = '';
 }
+/*
+$( document ).ready(function() {
+   
+    });
+    */

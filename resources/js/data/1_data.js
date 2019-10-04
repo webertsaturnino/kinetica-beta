@@ -140,6 +140,16 @@ $('.next-button').on('click', function() {
 
 
 $( document ).ready(function() {
+
+    var k_name = sessionStorage.getItem('k_name');
+    var k_email = sessionStorage.getItem('k_email');
+    var k_organization = sessionStorage.getItem('k_organization');
+    //console.log(k_name, k_email,  k_organization );
+    //return;
+
+    if(k_name == null || k_email==null || k_organization == null)
+        window.location = "index.html";
+
     //Inicialização da planilha
     var data = [],
         colHeaders = [
