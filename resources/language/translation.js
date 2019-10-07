@@ -23,11 +23,10 @@ translation['en'] = {
     "system_final_volume": "Final volume",
     "system_initial_volume": "Initial volume",
     "time_unit": "Time unit",
-    "welcome_text": '<p class="text-center">' +
-        '    Welcome to Kinetica.' +
+    "welcome_text": '<p class="text-center">'  +
         '</p>' +
-        '<p class="text-left">' +
-        '    Web-based application for determining nutrient uptake kinect parameter values in plants.' +
+        '<p class="text-justify">' +
+        '    Web-based application for determining ion uptake kinect parameter values in plants' +
         '</p>',
     "µmol/L": "&#xB5;mol&#x22C5;L&#x207B;&#xB9;",
     "µmol/mL": "&#xB5;mol&#x22C5;mL&#x207B;&#xB9;",
