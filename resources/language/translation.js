@@ -4,7 +4,7 @@ var translation = {
 };
 
 translation['en'] = {
-    "calculating": "Calculating",
+    "calculating": "Processing data. Please wait.",
     "chart": "Chart",
     "concentration_unit": "Concentration unit",
     "data_input": "Data input",
