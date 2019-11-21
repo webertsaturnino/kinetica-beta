@@ -54,6 +54,11 @@ hr.index{
     width: 100%;
     color: #d3d3d3;
 }
+hr.checkout{
+    width: 100%;
+    color: #d3d3d3;
+}
+
 .form-group{
     margin-bottom: 15px;
 }
@@ -113,7 +118,7 @@ input, input::-webkit-input-placeholder {
 .table-container{
   
    overflow: auto;
-  
+   max-height: 500px;
 }
 .loading{
     background-color: rgba(0, 0, 0, 0.75);
@@ -143,7 +148,10 @@ input, input::-webkit-input-placeholder {
     margin-bottom: 0;!important
 }
 
-h1,h2,h3{
+h1,h2,h3,h4,h5{
+    margin: 30px;
+}
+.row button{
     margin: 30px;
 }
 
@@ -243,3 +251,15 @@ text-decoration:underline;
     text-align: right;
     justify-content: left;
 }
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #696b6d;
+    border-color: #696b6d;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #949698;
+    border-color: #949698;
+}
+

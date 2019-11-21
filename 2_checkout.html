@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse content-data">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.html"><img src="images/logos/u13.svg"></a>
@@ -28,51 +28,54 @@
     </nav>
     <div class="container-fluid">
         <div class="row content-data">
-            <div class="col-lg-1 col-md-1 col-sm-1">
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 text-left container-data">
+            
+            <div class="col-lg-12 col-md-12 col-sm-12 text-left container-data">
                 <div class="row">
-                    <h4> Results</h4>
+                    <div class="col-lg-12">
+                        <h4> Results</h4>
+                    </div>
                 </div>
+                <hr class="checkout">
                 <div class="row">
                     <div class="col-lg-7">
                             <h2 translate=""></h2>
                             <div id="chartsTest2"></div>
                             <div class="form-group ">
-                                <button type="button" id="download_grafico1" class="btn btn-primary btn-lg btn-block">Download</button>
+                                <button type="button" id="download_grafico1" class="btn btn-primary btn-lg ">Save</button>
                             </div>
                         </div>
-                    <div class="col-lg-5  table-container">
+                    <div class="col-lg-5  ">
                         <h2 translate=></h2>
                         <!-- <div id="table"></div> -->
+                        <div class="table-container">
+                            <table class="table" id="kinetica_depletion_data_table">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                        <table class="table" id="kinetica_depletion_data_table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
-
+                                </tbody>
+                            </table>
+                        </div>
 
                         <div class="form-group ">
-                            <button type="button" id="download_table" class="btn btn-primary btn-lg btn-block">Download</button>
+                            <button type="button" id="download_table" class="btn btn-primary btn-lg ">Save</button>
                         </div>
                     </div>
                 </div>
+                <hr class="checkout">
                 <!-- NOVA TABela-->
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 translate="  "></h3>
                         <h3 translate=></h3>
-                        <h5 translate="Models Analysis">Model Analysis</h5>
+                        <h3 translate="Models Analysis">Model Analysis</h3>
                         <table class="table" id='kinetica_model_analysis_table'>
                             <thead class="thead-light">
                                 <tr>
@@ -162,14 +165,15 @@
                             </tbody>
                         </table>
                         <div class="form-group ">
-                            <button type="button" id="download_kinetica_model_analysis_table" class="btn btn-primary btn-lg btn-block">Download</button>
+                            <button type="button" id="download_kinetica_model_analysis_table" class="btn btn-primary btn-lg ">Save</button>
                         </div>
 
                     </div>
                 </div>
+                <hr class="checkout">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h5 translate="Kinects parameter values">Kinetic parameters values</h5>
+                        <h3 translate="Kinects parameter values">Kinetic parameters values</h3>
                         <h4 translate=></h4>
                         <table class="table" id='kinetica_kinetic_parameters_table'>
                             <thead class="thead-light">
@@ -246,10 +250,11 @@
 
                         </table>
                         <div class="form-group ">
-                            <button type="button" id="download_kinetica_kinetic_parameters_table" class="btn btn-primary btn-lg btn-block">Download</button>
+                            <button type="button" id="download_kinetica_kinetic_parameters_table" class="btn btn-primary btn-lg ">Save</button>
                         </div>
                     </div>
                 </div>
+                <hr class="checkout">
                 <div class="row">
                     <h2 translate="">Plots:</h2>
                 </div>
@@ -258,39 +263,29 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <div id="chartsLinear_Power"></div>
-                        <div class="form-group ">
-                            <button type="button" id="download_chartsLinear_Power" class="btn btn-primary btn-lg btn-block">Download</button>
-                        </div>
+                        <div id="chartsLinear_Power"></div>  
                     </div>
                     <div class="col-lg-6">
-                        <div id="charts_lp_lin_burk"></div>
-                        <div class="form-group ">
-                            <button type="button" id="download_charts_lp_lin_burk" class="btn btn-primary btn-lg btn-block">Download</button>
-                        </div>
+                        <div id="charts_lp_lin_burk"></div>  
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <div id="charts_lp_eadie_hofstee"></div>
-                        <div class="form-group ">
-                            <button type="button" id="download_charts_lp_eadie_hofstee" class="btn btn-primary btn-lg btn-block">Download</button>
-                        </div>
+                        <div id="charts_lp_eadie_hofstee"></div>                     
                     </div>
                     <div class="col-lg-6">
-                        <div id="charts_lp_hanes_woolf"></div>
-                        <div class="form-group ">
-                            <button type="button" id="download_charts_lp_hanes_woolf" class="btn btn-primary btn-lg btn-block">Download</button>
-                        </div>
+                        <div id="charts_lp_hanes_woolf"></div>    
                     </div>
                 </div>
+                <div class="row">
+                        <div class="form-group ">
+                            <button type="button" id="download_all_LP" class="btn btn-primary btn-lg ">Save All Charts Linear Power</button>
+                        </div>
+                    </div>
+                <hr class="checkout">
+
                 <div class="row">
                     <h3 translate="">Linear Exponential </h3>
-                </div>
-                <div class="row">
-                    <div class="form-group ">
-                        <button type="button" id="download_all_LE" class="btn btn-primary btn-lg btn-block">Download All Charts Linear Exponential </button>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
@@ -300,6 +295,7 @@
                         <div id="charts_le_lin_burk"></div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-lg-6">
                         <div id="charts_le_eadie_hofstee"></div>
@@ -308,6 +304,12 @@
                         <div id="charts_le_hanes_woolf"></div>
                     </div>
                 </div>
+                <div class="row">
+                        <div class="form-group ">
+                            <button type="button" id="download_all_LE" class="btn btn-primary btn-lg ">Save All Charts Linear Exponential </button>
+                        </div>
+                    </div>
+                <hr class="checkout">
 
                 <div class="row">
                     <h3 translate="">Linear Reciprocal Exponential </h3>
@@ -329,6 +331,14 @@
                     </div>
                 </div>
                 <div class="row">
+                        <div class="form-group ">
+                            <button type="button" id="download_all_LRE" class="btn btn-primary btn-lg ">Save All Charts Linear Reciprocal Exponential </button>
+                        </div>
+                    </div>
+                <hr class="checkout">
+
+
+                <div class="row">
                     <h3 translate="">Direct Adjust</h3>
                 </div>
                 <div class="row">
@@ -348,18 +358,22 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2">
-                    <form class="form-horizontal">
-                        <fieldset>
-                            <div class="form-group ">
-                                <button type="button" class="btn btn-primary btn-lg btn-block back-button" translate="back">Back</button>
-                            </div>
-                        </fieldset>
-                    </form>
+                <div class="row">
+                        <div class="form-group ">
+                            <button type="button" id="download_all_DA" class="btn btn-primary btn-lg ">Save All Charts Direct Adjust</button>
+                        </div>
+                    </div>
+                <hr class="checkout">
+
+
+
+                <div class="row">
+                    <div class="form-group ">
+                        <button type="button" class="btn btn-primary btn-lg  back-button" translate="back">Back</button>
+                     </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-1">
-            </div>
+            
         </div>
     </div>
     <footer class="container-fluid">

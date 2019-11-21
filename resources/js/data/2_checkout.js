@@ -1193,28 +1193,36 @@ $("#download_grafico1").click(function(){
 });
 
 
-$("#download_chartsLinear_Power").click(function(){
+
+$("#download_all_LP").click(function(){
     Plotly.downloadImage(chartsLinear_Power, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_michaelis-menten'});
-});
-
-$("#download_charts_lp_lin_burk").click(function(){
     Plotly.downloadImage(charts_lp_lin_burk, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_lin_burk'});
-});
-
-$("#download_charts_lp_eadie_hofstee").click(function(){
     Plotly.downloadImage(charts_lp_eadie_hofstee, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_eadie_hofstee'});
-});
-
-$("#download_charts_lp_hanes_woolf").click(function(){
     Plotly.downloadImage(charts_lp_hanes_woolf, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lp_hanes_woolf'});
-});
 
+});
 
 $("#download_all_LE").click(function(){
     Plotly.downloadImage(chartsLinear_Exponential, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_michaelis-menten'});
     Plotly.downloadImage(charts_le_lin_burk, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_lin_burk'});
     Plotly.downloadImage(charts_le_eadie_hofstee, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_eadie_hofstee'});
     Plotly.downloadImage(charts_le_hanes_woolf, {format: 'svg', width: 800, height: 600, filename: 'kinetica_le_hanes_woolf'});
+
+});
+
+$("#download_all_LRE").click(function(){
+    Plotly.downloadImage(chartsLinear_Reciprocal_Exponential, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lr_michaelis-menten'});
+    Plotly.downloadImage(charts_lr_lin_burk, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lr_lin_burk'});
+    Plotly.downloadImage(charts_lr_eadie_hofstee, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lr_eadie_hofstee'});
+    Plotly.downloadImage(charts_lr_hanes_woolf, {format: 'svg', width: 800, height: 600, filename: 'kinetica_lr_hanes_woolf'});
+
+});
+
+$("#download_all_DA").click(function(){
+    Plotly.downloadImage(chartsDirect_Adjust, {format: 'svg', width: 800, height: 600, filename: 'kinetica_da_michaelis-menten'});
+    Plotly.downloadImage(charts_da_lin_burk, {format: 'svg', width: 800, height: 600, filename: 'kinetica_da_lin_burk'});
+    Plotly.downloadImage(charts_da_eadie_hofstee, {format: 'svg', width: 800, height: 600, filename: 'kinetica_da_eadie_hofstee'});
+    Plotly.downloadImage(charts_da_hanes_woolf, {format: 'svg', width: 800, height: 600, filename: 'kinetica_da_hanes_woolf'});
 
 });
 
