@@ -82,8 +82,14 @@ input, input::-webkit-input-placeholder {
 .login-button{
     margin-top: 5px;
 }
+.container{
+    -webkit-box-shadow: 12px 0 15px -10px rgba(0, 0, 0, 0.6), -5px 0 8px -4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 12px 0 15px -10px rgba(0, 0, 0, 0.6), -5px 0 8px -4px rgba(0, 0, 0, 0.6);
+    box-shadow: 12px 0 15px -10px rgba(0, 0, 0, 0.6), -5px 0 8px -4px rgba(0, 0, 0, 0.6);
+}
 .container-data{
     background-color: #FFF;
+    padding: 10px;
     -webkit-box-shadow: 12px 0 15px -10px rgba(0, 0, 0, 0.6), -5px 0 8px -4px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: 12px 0 15px -10px rgba(0, 0, 0, 0.6), -5px 0 8px -4px rgba(0, 0, 0, 0.6);
     box-shadow: 12px 0 15px -10px rgba(0, 0, 0, 0.6), -5px 0 8px -4px rgba(0, 0, 0, 0.6);
@@ -144,7 +150,10 @@ h1,h2,h3{
 .erro{
      display: none;
 }
+h4.data{
+    margin: 20px 10px 10px 30px;
 
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
