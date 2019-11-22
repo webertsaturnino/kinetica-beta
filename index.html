@@ -7,12 +7,16 @@
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/user.css">
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <link rel="icon" href="images/logos/ico_2qp_2.ico" sizes="128x128">
+        <link rel="icon" href="images/logos/ico_64.ico" sizes="64x64">
+        <link rel="icon" href="images/logos/ico_32.ico" sizes="32x32">
     </head>
     <body>
+    <div class="login">
         <nav class="navbar navbar-inverse main-center">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><img src="images/logos/logo_kinetica_u5.png"></a>
+                    <a class="navbar-brand" href="#"><img class='login' src="images/logos/logo_kinetica_u5.png"></a>
                 </div>
                  <div class="navbar-header hide">
                     <select id="language" name="language" class="form-control">
@@ -20,8 +24,11 @@
                         <option value="pt-br" translate="pt-br"></option>
                     </select>
                 </div>
-                <div class="navbar-header">
-                    <span class="alink" id="btn_abount">About</span></br>
+            </div>
+
+            <div class="container-fluid">
+            <div class="navbar-header">
+                    <span class="alink" id="btn_abount">About</span>
                     <span class="alink" id="btn_htc">How do cite</span>
                 </div>
             </div>
@@ -87,6 +94,7 @@
                 </div>
             </div>
         </footer>
+    </div>
         <div id="about" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
@@ -104,21 +112,21 @@
             </div>
         </div>
         <div id="htc" class="modal">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <div class="modal-header">
-                            <h2>How do cite</h2>
-                        </div>
-                        <div class="modal-body">
-                            <p>Some text in the Modal Body</p>
-                            <p>Some other text...</p>
-                        </div>
-                        <div class="modal-footer">
-                            <h3>Modal Footer</h3>
-                        </div>
-                </div>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-header">
+                        <h2>How do cite</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the Modal Body</p>
+                        <p>Some other text...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <h3>Modal Footer</h3>
+                    </div>
             </div>
+        </div>
 
         <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
