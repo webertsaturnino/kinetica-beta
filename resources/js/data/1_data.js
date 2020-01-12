@@ -17,11 +17,11 @@ $('#concentration_unit').on('change', function() {
     und = $(this).val();
     $("#col-1").html(cont + '<br>(' + und + ')' );
 });
-$('#root_tissue_measure_unit').on('change', function() {
+$('#absorbing_tissue_measure_unit').on('change', function() {
     $('.addon-root_tissue').html($(this).val());
 });
 
-$('#root_tissue_measure').on('change', function() {
+$('#absorbing_tissue_measure').on('change', function() {
     var valor = $(this).val();
     if(valor <= 0){
         $(this).val("");
@@ -40,10 +40,10 @@ $('#time_unit').on('change', function() {
 });
 
 
-$('#system_final_volume').on('change', function() {
+$('#final_volume').on('change', function() {
     var und = $(this).val();
-    var initial_volume = Number($("#system_initial_volume").val().replace(',', '')) || 0;
-    var final_volume = Number($("#system_final_volume").val().replace(',', '')) || 0;
+    var initial_volume = Number($("#initial_volume").val().replace(',', '')) || 0;
+    var final_volume = Number($("#final_volume").val().replace(',', '')) || 0;
     if(final_volume > initial_volume){
         $(this).val("");
         $("#errorVolume").fadeIn(700, function(){
@@ -54,7 +54,7 @@ $('#system_final_volume').on('change', function() {
     }
 });
 
-$('#system_initial_volume').on('change', function() {
+$('#initial_volume').on('change', function() {
     var und = $(this).val();
     if(und <= 0) {    
         $(this).val("");
@@ -90,19 +90,19 @@ function getDataInput() {
     var data = {
         "concentration_unit": $("#concentration_unit :selected").val(),
         "time_unit": $("#time_unit :selected").val(),
-        "root_tissue_measure_unit": $("#root_tissue_measure_unit :selected").val(),
-        "system_initial_volume": Number($("#system_initial_volume").val().replace(',', '')) || 0,
-        "system_final_volume": Number($("#system_final_volume").val().replace(',', '')) || 0,
-        "root_tissue_measure": Number($("#root_tissue_measure").val().replace(',', '')) || 0,
+        "absorbing_tissue_measure_unit": $("#absorbing_tissue_measure_unit :selected").val(),
+        "initial_volume": Number($("#initial_volume").val().replace(',', '')) || 0,
+        "final_volume": Number($("#final_volume").val().replace(',', '')) || 0,
+        "absorbing_tissue_measure": Number($("#absorbing_tissue_measure").val().replace(',', '')) || 0,
         "time_data": $('#mytable').jexcel('getColumnData', 0),
         "instant_concentration": $('#mytable').jexcel('getColumnData', 1),
-        "sampled_volumes": $('#mytable').jexcel('getColumnData', 2)
+        "samples_volumes": $('#mytable').jexcel('getColumnData', 2)
     };
 
-    for (var i = 0; i < data.sampled_volumes.length; i++) {
+    for (var i = 0; i < data.samples_volumes.length; i++) {
         data.time_data[i] = Number(data.time_data[i].replace(',', '.')) || 0;
         data.instant_concentration[i] = Number(data.instant_concentration[i].replace(',', '.')) || 0;
-        data.sampled_volumes[i] = Number(data.sampled_volumes[i].replace(',', '.')) || 0;
+        data.samples_volumes[i] = Number(data.samples_volumes[i].replace(',', '.')) || 0;
     }
     //console.log(data);
     return data;
@@ -193,28 +193,28 @@ function carregarDadosCache(all_results){
     a = all_results.system_common_results.time_unit.system_value;
     $('#time_unit option[value="'+a+'"]').attr('selected','selected').change();
     
-    a = all_results.system_common_results.root_tissue_measure_unit.system_value;
-    $('#root_tissue_measure_unit option[value="'+a+'"]').attr('selected','selected').change();
+    a = all_results.system_common_results.absorbing_tissue_measure_unit.system_value;
+    $('#absorbing_tissue_measure_unit option[value="'+a+'"]').attr('selected','selected').change();
     
-    a = all_results.system_common_results.system_initial_volume.system_value;
-    $('#system_initial_volume').val(a);
+    a = all_results.system_common_results.initial_volume.system_value;
+    $('#initial_volume').val(a);
     
-    a = all_results.system_common_results.system_final_volume.system_value;
-    $('#system_final_volume').val(a);
+    a = all_results.system_common_results.final_volume.system_value;
+    $('#final_volume').val(a);
 
-    a = all_results.system_common_results.root_tissue_measure.system_value;
-    $('#root_tissue_measure').val(a);
+    a = all_results.system_common_results.absorbing_tissue_measure.system_value;
+    $('#absorbing_tissue_measure').val(a);
     
     var data = [];
     var times = JSON.parse(all_results.system_common_results.times.system_value.replace(/'/g, '\"'));
-    var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"'));
-    var sampled_volumes = JSON.parse(all_results.system_common_results.sampled_volumes.system_value.replace(/'/g, '\"'));
+    var observed_instant_concentrations = JSON.parse(all_results.system_common_results.observed_instant_concentrations.system_value.replace(/'/g, '\"'));
+    var samples_volumes = JSON.parse(all_results.system_common_results.samples_volumes.system_value.replace(/'/g, '\"'));
     for (var i = 0; i <  times.length; i++) {
         
         data.push([
             times[i],
-            concentrations[i],
-            sampled_volumes[i] 
+            observed_instant_concentrations[i],
+            samples_volumes[i]
         ]);
     }
     $('#mytable').jexcel('setData',data);
@@ -224,10 +224,10 @@ function carregarDadosCache(all_results){
 function carregarDadosInicio(){
     $("#concentration_unit").prop("selectedIndex", 3).change();
     $("#time_unit").prop("selectedIndex", 3).change();
-    $("#root_tissue_measure_unit").prop("selectedIndex", 1).change();
-    $("#system_initial_volume").val(19);
-    $("#system_final_volume").val(14);
-    $("#root_tissue_measure").val(5500.00);
+    $("#absorbing_tissue_measure_unit").prop("selectedIndex", 1).change();
+    $("#initial_volume").val(19);
+    $("#final_volume").val(14);
+    $("#absorbing_tissue_measure").val(5500.00);
     $('#mytable').jexcel('setData',[["0.0", "397.0", "0.01"], ["0.5", "346.5", "0.03"], ["1.0", "296.0", "0.01"], ["1.5", "245.5", "0.05"], ["2.0", "195.0", "0.01"], ["2.5", "144.4", "0.02"], ["3.0", "94.0", "0.04"], ["3.5", "80.0", "0.02"], ["4.0", "66.0", "0.02"], ["4.5", "54.0", "0.02"], ["5.0", "41.0", "0.01"], ["5.5", "40.0", "0.01"], ["6.0", "42.0", "0.01"]]);
    
 }
@@ -294,8 +294,8 @@ function validacao(){
     for(var i = 0 ; i < col.length; i++){
         soma += Number(col[i]);
     }
-    var inicial = Number($("#system_initial_volume").val().replace(',', '')) || 0;
-    var final = Number($("#system_final_volume").val().replace(',', '')) || 0;
+    var inicial = Number($("#initial_volume").val().replace(',', '')) || 0;
+    var final = Number($("#final_volume").val().replace(',', '')) || 0;
     if(soma > (inicial-final)){
         //Mensagem de texto
         var msg = "Sampled volume error: ";
@@ -312,10 +312,10 @@ function validacao(){
     //Validacao de campos vazios 
     if ($("#concentration_unit :selected").val() == '' ||
         $("#time_unit :selected").val()  == '' ||
-        $("#root_tissue_measure_unit :selected")  == '' ||
-        ($("#system_initial_volume").val().replace(',', '')) == '' ||
-        ($("#system_final_volume").val().replace(',', '')) == '' ||
-        ($("#root_tissue_measure").val().replace(',', '')) == '' ){
+        $("#absorbing_tissue_measure_unit :selected")  == '' ||
+        ($("#initial_volume").val().replace(',', '')) == '' ||
+        ($("#final_volume").val().replace(',', '')) == '' ||
+        ($("#absorbing_tissue_measure").val().replace(',', '')) == '' ){
 
             flag = 1;
         }

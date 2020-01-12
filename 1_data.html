@@ -59,15 +59,15 @@
                                                     <option value="µmol/mL" translate="µmol/mL"></option>
                                                     <option value="mmol/L" translate="mmol/L"></option>
                                                     <option value="mmol/mL" translate="mmol/mL"></option>
-                                                    <option value="pmol/L" translate="pmol/L"></option>
-                                                    <option value="pmol/mL" translate="pmol/mL"></option>
+                                                    <option value="nmol/L" translate="nmol/L"></option>
+                                                    <option value="nmol/mL" translate="nmol/mL"></option>
                                                 </select>
                                             </div>
                                         </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 control-label" for="root_tissue_measure_unit" translate="root_tissue_measure_unit"></label>
+                                        <label class="col-md-12 control-label" for="absorbing_tissue_measure_unit" translate="absorbing_tissue_measure_unit"></label>
                                         <div class="col-md-10">
-                                            <select id="root_tissue_measure_unit" name="root_tissue_measure_unit" class="form-control">
+                                            <select id="absorbing_tissue_measure_unit" name="absorbing_tissue_measure_unit" class="form-control">
                                                 <option disabled selected value>Select an option</option>
                                                 <option value="g">g</option>
                                                 <option value="kg">kg</option>
@@ -86,30 +86,30 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 control-label" for="system_initial_volume" translate="system_initial_volume"></label>
+                                        <label class="col-md-12 control-label" for="initial_volume" translate="initial_volume"></label>
                                         <div class="col-md-10">
                                             <div class="input-group">
-                                                <input id="system_initial_volume" name="system_initial_volume" class="form-control mask-money" placeholder="e.g.: 20" type="text">
+                                                <input id="initial_volume" name="initial_volume" class="form-control mask-money" placeholder="e.g.: 20" type="text">
                                                 <span class="input-group-addon addon-volume"></span>
                                                 <span class="erro" id="errorVolumeInicial" >O valor maior que zero</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 control-label" for="system_final_volume" translate="system_final_volume"></label>
+                                        <label class="col-md-12 control-label" for="final_volume" translate="final_volume"></label>
                                         <div class="col-md-10">
                                             <div class="input-group">
-                                                <input id="system_final_volume" name="system_final_volume" class="form-control mask-money" placeholder="e.g.: 15" type="text">
+                                                <input id="final_volume" name="final_volume" class="form-control mask-money" placeholder="e.g.: 15" type="text">
                                                 <span class="input-group-addon addon-volume"></span>
                                                 <span class="erro" id="errorVolume" >O valor final deve ser menor que inicial</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12 control-label" for="root_tissue_measure" translate="root_tissue_measure"></label>
+                                        <label class="col-md-12 control-label" for="absorbing_tissue_measure" translate="absorbing_tissue_measure"></label>
                                         <div class="col-md-10">
                                             <div class="input-group">
-                                                <input id="root_tissue_measure" name="root_tissue_measure" class="form-control mask-money" placeholder="e.g.: 5500" type="text">
+                                                <input id="absorbing_tissue_measure" name="absorbing_tissue_measure" class="form-control mask-money" placeholder="e.g.: 5500" type="text">
                                                 <span class="input-group-addon addon-root_tissue"></span>
                                                 <span class="erro" id="errorRoot" >O valor deve ser maior que zero</span>
                                             </div>

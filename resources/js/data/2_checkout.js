@@ -12,41 +12,41 @@
     all_resultsTabela = all_results;   
     all_results = all_results.all_results;
 
-    $("#system_initial_volume").val(all_results.system_common_results.system_initial_volume.system_value);
-    $("#system_final_volume").val(all_results.system_common_results.system_final_volume.system_value);
-    $("#root_tissue_measure").val(all_results.system_common_results.root_tissue_measure.system_value);
-    $(".addon-volume").html(all_results.system_common_results.volume_unit.system_value);
-    $(".addon-root_tissue").html(all_results.system_common_results.root_tissue_measure_unit.system_value);
+    $("#initial_volume").val(all_results.system_common_results.initial_volume.value);
+    $("#final_volume").val(all_results.system_common_results.final_volume.value);
+    $("#root_tissue_measure").val(all_results.system_common_results.root_tissue_measure.value);
+    $(".addon-volume").html(all_results.system_common_results.volume_unit.value);
+    $(".addon-root_tissue").html(all_results.system_common_results.root_tissue_measure_unit.value);
 
     var colHeaders = [
-        'Sampling<br/>time<br/>(' + all_results.system_common_results.time_unit.system_value + ')',
-        'Instant<br>concentration<br>(' + translation['en'][all_results.system_common_results.concentration_unit.system_value] + ')',
-        'Sampled<br>volume<br>(' + all_results.system_common_results.volume_unit.system_value + ')',
-        'Quantity<br>(' + all_results.system_common_results.matter_quantity_unit.system_value + ')',
-        'Volumes<br>(' + all_results.system_common_results.volume_unit.system_value + ')'
+        'Sampling<br/>time<br/>(' + all_results.system_common_results.time_unit.value + ')',
+        'Instant<br>concentration<br>(' + translation['en'][all_results.system_common_results.concentration_unit.value] + ')',
+        'Sampled<br>volume<br>(' + all_results.system_common_results.volume_unit.value + ')',
+        'Quantity<br>(' + all_results.system_common_results.matter_quantity_unit.value + ')',
+        'Volumes<br>(' + all_results.system_common_results.volume_unit.value + ')'
     ];
 
     var x = [], y_0=[], y_1=[], y_2=[], y_3=[],
         data = [],
-        times = JSON.parse(all_results.system_common_results.times.system_value),
-        concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value.replace(/'/g, '\"')),
-        volumes = JSON.parse(all_results.system_common_results.volumes.system_value.replace(/'/g, '\"')),
-        sampled_volumes = JSON.parse(all_results.system_common_results.sampled_volumes.system_value.replace(/'/g, '\"')),
-        quantities = JSON.parse(all_results.system_common_results.quantities.system_value.replace(/'/g, '\"'));
+        sampling_times = JSON.parse(all_results.system_common_results.sampling_times.value),
+        concentrations = JSON.parse(all_results.system_common_results.concentrations.value.replace(/'/g, '\"')),
+        volumes = JSON.parse(all_results.system_common_results.volumes.value.replace(/'/g, '\"')),
+        samples_volumes = JSON.parse(all_results.system_common_results.samples_volumes.value.replace(/'/g, '\"')),
+        quantities = JSON.parse(all_results.system_common_results.quantities.value.replace(/'/g, '\"'));
         y1 = (all_results.model_specific_results.estimated_quantities.linear_power);
         y2 = (all_results.model_specific_results.estimated_quantities.linear_exponential);
         y3 = (all_results.model_specific_results.estimated_quantities.linear_reciprocal_exponential);
        
     data.push( colHeaders);
-    for (var i = 0, len = times.length; i < len; i++) {
+    for (var i = 0, len = sampling_times.length; i < len; i++) {
         data.push([
-            times[i].toFixed(2),
+            sampling_times[i].toFixed(2),
             concentrations[i].toFixed(2),
-            sampled_volumes[i].toFixed(2),
+            samples_volumes[i].toFixed(2),
             (+quantities[i]).toFixed(2),
             volumes[i].toFixed(2)
         ]);
-        x.push(times[i]);
+        x.push(sampling_times[i]);
         y_0.push((+quantities[i]).toFixed(2));
         y_1.push((y1[i]).toFixed(2));
         y_2.push((y2[i]).toFixed(2));
@@ -118,12 +118,12 @@
     var layout = {
         title: 'Q(t)',
         xaxis: {
-            title: 'Time ('+all_results.system_common_results.time_unit.system_value+')',
+            title: 'Time ('+all_results.system_common_results.time_unit.value+')',
             showgrid: false,
             zeroline: false
         },
         yaxis: {
-            title: 'Quantity('+all_results.system_common_results.matter_quantity_unit.system_value +')',
+            title: 'Quantity('+all_results.system_common_results.matter_quantity_unit.value +')',
             showline: false
         },
         width: 700,
@@ -188,8 +188,8 @@ function preencheTabela01(all_results){
     var p_f_lin_nlin = all_results.model_specific_results.p_f_lin_nlin;
 
 
-    $(newFunction()).children("thead").children('tr:eq(0)').children('th:eq(7)').append("<br>" + all_results.system_common_results.matter_quantity_unit.system_value);
-    $("#kinetica_model_analysis_tablea_model_analysis_table").children("thead").children('tr:eq(0)').children('th:eq(8)').append("<br>" + all_results.system_common_results.time_unit.system_value);
+    $(newFunction()).children("thead").children('tr:eq(0)').children('th:eq(7)').append("<br>" + all_results.system_common_results.matter_quantity_unit.value);
+    $("#kinetica_model_analysis_tablea_model_analysis_table").children("thead").children('tr:eq(0)').children('th:eq(8)').append("<br>" + all_results.system_common_results.time_unit.value);
 
     //Tabela 1
     //Linha 0
@@ -271,9 +271,9 @@ function preencherTabela02(all_results){
     var r_conj = all_results.model_specific_results.r_conj;
 
     //TABELA 2
-    $("#kinetica_kinetic_parameters_table").children("thead").children('tr:eq(1)').children('th:eq(0)').html(all_results.system_common_results.concentration_unit.system_value);
-    $("#kinetica_kinetic_parameters_table").children("thead").children('tr:eq(1)').children('th:eq(1)').html(all_results.system_common_results.uptake_rate_unit.system_value);
-    $("#kinetica_kinetic_parameters_table").children("thead").children('tr:eq(1)').children('th:eq(2)').html(all_results.system_common_results.concentration_unit.system_value);
+    $("#kinetica_kinetic_parameters_table").children("thead").children('tr:eq(1)').children('th:eq(0)').html(all_results.system_common_results.concentration_unit.value);
+    $("#kinetica_kinetic_parameters_table").children("thead").children('tr:eq(1)').children('th:eq(1)').html(all_results.system_common_results.uptake_rate_unit.value);
+    $("#kinetica_kinetic_parameters_table").children("thead").children('tr:eq(1)').children('th:eq(2)').html(all_results.system_common_results.concentration_unit.value);
 
  
     //Coluna 1
@@ -346,7 +346,7 @@ function preencherTabela02(all_results){
 function graficos(all_results){
 //grafico
     //TODO:VOLTAR COM ESSAS LINHAS;
-    var concentrations = JSON.parse(all_results.system_common_results.concentrations.system_value);
+    var concentrations = JSON.parse(all_results.system_common_results.concentrations.value);
     var concentrations_linear_power = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_power);
     var concentrations_linear_exponential = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_exponential);
     var concentrations_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_reciprocal_exponential);
@@ -397,14 +397,14 @@ function graficos(all_results){
         
     }
 
-    var label_y = all_results.system_common_results.uptake_rate_unit.system_value;
+    var label_y = all_results.system_common_results.uptake_rate_unit.value;
     var label_y_1 = label_y.split("/", 2)[0]
     var label_y_2 = label_y.split("/", 2)[1]
     var label_y_2a = label_y_2.split(".", 2)[0]
     var label_y_2b = label_y_2.split(".", 2)[1]
 
 
-    var label_x = all_results.system_common_results.concentration_unit.system_value;
+    var label_x = all_results.system_common_results.concentration_unit.value;
 
     var label_x_1 = label_x.split("/", 2)[0]
     var label_x_2 = label_x.split("/", 2)[1]
