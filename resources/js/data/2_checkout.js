@@ -33,9 +33,9 @@
         volumes = JSON.parse(all_results.system_common_results.volumes.value.replace(/'/g, '\"')),
         samples_volumes = JSON.parse(all_results.system_common_results.samples_volumes.value.replace(/'/g, '\"')),
         quantities = JSON.parse(all_results.system_common_results.quantities.value.replace(/'/g, '\"'));
-        y1 = (all_results.model_specific_results.estimated_quantities.linear_power);
-        y2 = (all_results.model_specific_results.estimated_quantities.linear_exponential);
-        y3 = (all_results.model_specific_results.estimated_quantities.linear_reciprocal_exponential);
+        y1 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_power.value.replace(/'/g, '\"'));
+        y2 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_exponential.value.replace(/'/g, '\"'));
+        y3 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_reciprocal_exponential.value.replace(/'/g, '\"'));
        
     data.push( colHeaders);
     for (var i = 0, len = sampling_times.length; i < len; i++) {
