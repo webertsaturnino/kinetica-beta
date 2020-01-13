@@ -94,17 +94,17 @@ function getDataInput() {
         "initial_volume": Number($("#initial_volume").val().replace(',', '')) || 0,
         "final_volume": Number($("#final_volume").val().replace(',', '')) || 0,
         "absorbing_tissue_measure": Number($("#absorbing_tissue_measure").val().replace(',', '')) || 0,
-        "time_data": $('#mytable').jexcel('getColumnData', 0),
-        "instant_concentration": $('#mytable').jexcel('getColumnData', 1),
+        "sampling_times": $('#mytable').jexcel('getColumnData', 0),
+        "observed_instant_concentrations": $('#mytable').jexcel('getColumnData', 1),
         "samples_volumes": $('#mytable').jexcel('getColumnData', 2)
     };
 
     for (var i = 0; i < data.samples_volumes.length; i++) {
-        data.time_data[i] = Number(data.time_data[i].replace(',', '.')) || 0;
-        data.instant_concentration[i] = Number(data.instant_concentration[i].replace(',', '.')) || 0;
+        data.sampling_times[i] = Number(data.sampling_times[i].replace(',', '.')) || 0;
+        data.observed_instant_concentrations[i] = Number(data.observed_instant_concentrations[i].replace(',', '.')) || 0;
         data.samples_volumes[i] = Number(data.samples_volumes[i].replace(',', '.')) || 0;
     }
-    //console.log(data);
+    console.log(data);
     return data;
 
 }
@@ -154,7 +154,7 @@ $( document ).ready(function() {
     var data = [],
         colHeaders = [
             translation[$("#language :selected").val()]['sampling_time'] || translation['en']['sampling_time'],
-            translation[$("#language :selected").val()]['instant_concentration'] || translation['en']['instant_concentration'],
+            translation[$("#language :selected").val()]['observed_instant_concentrations'] || translation['en']['observed_instant_concentrations'],
             translation[$("#language :selected").val()]['sampled_volume'] || translation['en']['sampled_volume']
         ];
 
@@ -182,6 +182,7 @@ $( document ).ready(function() {
         return false;
 
     carregarDadosCache(all_results);
+    console.log(all_results)
     
 });
 

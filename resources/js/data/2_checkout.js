@@ -1,5 +1,5 @@
 ﻿$(function() {
-    //console.log(window.name);
+    console.log(window.name);
     if (!window.name)
         return false;
 
@@ -7,16 +7,16 @@
     if (typeof all_results != 'object')
         return false;
     
-    //console.log(all_results)
+    console.log(all_results)
 
     all_resultsTabela = all_results;   
     all_results = all_results.all_results;
 
     $("#initial_volume").val(all_results.system_common_results.initial_volume.value);
     $("#final_volume").val(all_results.system_common_results.final_volume.value);
-    $("#root_tissue_measure").val(all_results.system_common_results.root_tissue_measure.value);
+    $("#absorbing_tissue_measure").val(all_results.system_common_results.absorbing_tissue_measure.value);
     $(".addon-volume").html(all_results.system_common_results.volume_unit.value);
-    $(".addon-root_tissue").html(all_results.system_common_results.root_tissue_measure_unit.value);
+    $(".addon-root_tissue").html(all_results.system_common_results.absorbing_tissue_measure_unit.value);
 
     var colHeaders = [
         'Sampling<br/>time<br/>(' + all_results.system_common_results.time_unit.value + ')',
@@ -29,25 +29,25 @@
     var x = [], y_0=[], y_1=[], y_2=[], y_3=[],
         data = [],
         sampling_times = JSON.parse(all_results.system_common_results.sampling_times.value),
-        concentrations = JSON.parse(all_results.system_common_results.concentrations.value.replace(/'/g, '\"')),
+        observed_concentrations = JSON.parse(all_results.system_common_results.observed_concentrations.value.replace(/'/g, '\"')),
         volumes = JSON.parse(all_results.system_common_results.volumes.value.replace(/'/g, '\"')),
         samples_volumes = JSON.parse(all_results.system_common_results.samples_volumes.value.replace(/'/g, '\"')),
-        quantities = JSON.parse(all_results.system_common_results.quantities.value.replace(/'/g, '\"'));
-        y1 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_power.value.replace(/'/g, '\"'));
-        y2 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_exponential.value.replace(/'/g, '\"'));
-        y3 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_reciprocal_exponential.value.replace(/'/g, '\"'));
+        observed_quantities = JSON.parse(all_results.system_common_results.observed_quantities.value.replace(/'/g, '\"'));
+        y1 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_power);
+        y2 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_exponential);
+        y3 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_reciprocal_exponential);
        
     data.push( colHeaders);
     for (var i = 0, len = sampling_times.length; i < len; i++) {
         data.push([
             sampling_times[i].toFixed(2),
-            concentrations[i].toFixed(2),
+            observed_concentrations[i].toFixed(2),
             samples_volumes[i].toFixed(2),
-            (+quantities[i]).toFixed(2),
+            (+observed_quantities[i]).toFixed(2),
             volumes[i].toFixed(2)
         ]);
         x.push(sampling_times[i]);
-        y_0.push((+quantities[i]).toFixed(2));
+        y_0.push((+observed_quantities[i]).toFixed(2));
         y_1.push((y1[i]).toFixed(2));
         y_2.push((y2[i]).toFixed(2));
         y_3.push((y3[i]).toFixed(2));
@@ -346,7 +346,7 @@ function preencherTabela02(all_results){
 function graficos(all_results){
 //grafico
     //TODO:VOLTAR COM ESSAS LINHAS;
-    var concentrations = JSON.parse(all_results.system_common_results.concentrations.value);
+    var observed_concentrations = JSON.parse(all_results.system_common_results.observed_concentrations.value);
     var concentrations_linear_power = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_power);
     var concentrations_linear_exponential = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_exponential);
     var concentrations_linear_reciprocal_exponential = JSON.parse(all_results.model_specific_results.estimated_concentrations.linear_reciprocal_exponential);
@@ -360,28 +360,28 @@ function graficos(all_results){
     
   
     
-    var max_x = concentrations[0], max_y = rates_linear_power[0];
-    for (var i = 0; i < concentrations.length; i++) {
+    var max_x = observed_concentrations[0], max_y = rates_linear_power[0];
+    for (var i = 0; i < observed_concentrations.length; i++) {
         chart_data_linear_power.push({
-            x: parseFloat(concentrations[i]),
+            x: parseFloat(observed_concentrations[i]),
             y: rates_linear_power[i]
         });
         chart_data_linear_exponential.push({
-            x: parseFloat(concentrations[i]),
+            x: parseFloat(observed_concentrations[i]),
             y: rates_linear_exponential[i]
         });
         chart_data_linear_reciprocal_exponential.push({
-            x: parseFloat(concentrations[i]),
+            x: parseFloat(observed_concentrations[i]),
             y: rates_linear_reciprocal_exponential[i]
         });
 
         chart_diret_adjust.push({
-            x: parseFloat(concentrations[i]),
+            x: parseFloat(observed_concentrations[i]),
             y: rates_direct_adjust[i]
         });
 
-        if(concentrations[i] > max_x)
-            max_x = concentrations[i];
+        if(observed_concentrations[i] > max_x)
+            max_x = observed_concentrations[i];
         
         if(rates_linear_power[i] > max_y)
             max_y = rates_linear_power[i];
@@ -415,7 +415,7 @@ function graficos(all_results){
     var linear_reciprocal_exponential_x = [], linear_reciprocal_exponential_y=[];
     var direct_adjust_x = [], direct_adjust_y=[];
 
-    for (var i = 0; i < concentrations.length; i++) {
+    for (var i = 0; i < observed_concentrations.length; i++) {
         linear_Power_x.push(parseFloat(concentrations_linear_power[i]));
         linear_Power_y.push(rates_linear_power[i]);
 
@@ -425,7 +425,7 @@ function graficos(all_results){
         linear_reciprocal_exponential_x.push(parseFloat(concentrations_linear_reciprocal_exponential[i]));
         linear_reciprocal_exponential_y.push(rates_linear_reciprocal_exponential[i]);
 
-        direct_adjust_x.push(parseFloat(concentrations[i]));
+        direct_adjust_x.push(parseFloat(observed_concentrations[i]));
         direct_adjust_y.push(rates_direct_adjust[i]);
     }
 
