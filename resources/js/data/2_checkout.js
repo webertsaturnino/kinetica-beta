@@ -31,7 +31,7 @@
         sampling_times = JSON.parse(all_results.system_common_results.sampling_times.value),
         observed_concentrations = JSON.parse(all_results.system_common_results.observed_concentrations.value.replace(/'/g, '\"')),
         volumes = JSON.parse(all_results.system_common_results.volumes.value.replace(/'/g, '\"')),
-        samples_volumes = JSON.parse(all_results.system_common_results.samples_volumes.value.replace(/'/g, '\"')),
+        sampling_volumes = JSON.parse(all_results.system_common_results.sampling_volumes.value.replace(/'/g, '\"')),
         observed_quantities = JSON.parse(all_results.system_common_results.observed_quantities.value.replace(/'/g, '\"'));
         y1 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_power);
         y2 = JSON.parse(all_results.model_specific_results.estimated_quantities.linear_exponential);
@@ -42,7 +42,7 @@
         data.push([
             sampling_times[i].toFixed(2),
             observed_concentrations[i].toFixed(2),
-            samples_volumes[i].toFixed(2),
+            sampling_volumes[i].toFixed(2),
             (+observed_quantities[i]).toFixed(2),
             volumes[i].toFixed(2)
         ]);

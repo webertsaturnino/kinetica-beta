@@ -96,13 +96,13 @@ function getDataInput() {
         "absorbing_tissue_measure": Number($("#absorbing_tissue_measure").val().replace(',', '')) || 0,
         "sampling_times": $('#mytable').jexcel('getColumnData', 0),
         "observed_instant_concentrations": $('#mytable').jexcel('getColumnData', 1),
-        "samples_volumes": $('#mytable').jexcel('getColumnData', 2)
+        "sampling_volumes": $('#mytable').jexcel('getColumnData', 2)
     };
 
-    for (var i = 0; i < data.samples_volumes.length; i++) {
+    for (var i = 0; i < data.sampling_volumes.length; i++) {
         data.sampling_times[i] = Number(data.sampling_times[i].replace(',', '.')) || 0;
         data.observed_instant_concentrations[i] = Number(data.observed_instant_concentrations[i].replace(',', '.')) || 0;
-        data.samples_volumes[i] = Number(data.samples_volumes[i].replace(',', '.')) || 0;
+        data.sampling_volumes[i] = Number(data.sampling_volumes[i].replace(',', '.')) || 0;
     }
     console.log(data);
     return data;
@@ -209,13 +209,13 @@ function carregarDadosCache(all_results){
     var data = [];
     var times = JSON.parse(all_results.system_common_results.times.system_value.replace(/'/g, '\"'));
     var observed_instant_concentrations = JSON.parse(all_results.system_common_results.observed_instant_concentrations.system_value.replace(/'/g, '\"'));
-    var samples_volumes = JSON.parse(all_results.system_common_results.samples_volumes.system_value.replace(/'/g, '\"'));
+    var sampling_volumes = JSON.parse(all_results.system_common_results.sampling_volumes.system_value.replace(/'/g, '\"'));
     for (var i = 0; i <  times.length; i++) {
         
         data.push([
             times[i],
             observed_instant_concentrations[i],
-            samples_volumes[i]
+            sampling_volumes[i]
         ]);
     }
     $('#mytable').jexcel('setData',data);

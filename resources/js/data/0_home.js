@@ -6,7 +6,7 @@
     
 
     if(name == "" || name == null || name.length < 4 || name.split(" ").length < 2) {
-        alert("Por favor, indique um Nome válido.");
+        alert("Please indicate a valid name.");
         $("#name").focus();
         return false;
    
@@ -15,7 +15,7 @@
         email.indexOf(".") == -1 ||
         email == "" ||
         email == null) {
-          alert("Por favor, indique um e-mail válido.");
+          alert("Please indicate a valid email address.");
           $("#email").focus();
           return false;
       }
