@@ -60,8 +60,12 @@ hr{
     color: #fff;
 }
 hr.index{
+    margin: 0px;
     width: 100%;
     color: #d3d3d3;
+}
+hr.fim {
+    margin: 10px;
 }
 hr.checkout{
     width: 100%;
@@ -85,10 +89,9 @@ input, input::-webkit-input-placeholder {
     border-radius: 2px;
 }
 .main-center{
-    margin-top: 30px;
     margin: 0 auto;
     max-width: 380px;
-    padding: 10px 40px;
+    padding: 0px 40px;
 }
 .login-button{
     margin-top: 5px;
@@ -256,7 +259,7 @@ text-decoration:underline;
 .alink{
     text-align: right;
     justify-content: left;
-    padding: 10px;
+    padding: 20px;
 }
 
 .btn-primary:hover {
@@ -270,14 +273,20 @@ text-decoration:underline;
     border-color: #949698;
 }
 .login{
-   
+    
     background-color: #ffffff;
     max-width: 500px;
-    margin-top: 30px;
-    margin: 0 auto;
+    margin: 20px auto;
     /* max-width: 380px; */
     padding: 10px 40px;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.rowfooter{
+    padding: 0px 00px 0px 40px ;
+}
+#data_input_row{
+    padding-left: 30px;    
+    padding-right: 30px;
 }
