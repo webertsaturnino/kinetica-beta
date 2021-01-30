@@ -27,7 +27,7 @@
         var $impt = $form.find(':input').not(':button, :submit, :reset, :hidden');
 
 
-        $("#loginForm").attr("action","https://script.google.com/macros/s/AKfycbwDJTOktz0f1Ri-LIJ5jhHsZttIsiZrA2RtO9qHQBL1zNV0PBA/exec");
+        $("#loginForm").attr("action","https://script.google.com/macros/s/AKfycbzmKRze1sKeiK33xgb4QyEhldmBkSd3-mZ4_pRcSRN0MCM5bWEqOYlK/exec");
 
         // Submit function:
         $form.submit(function(){

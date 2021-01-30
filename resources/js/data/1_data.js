@@ -13,8 +13,8 @@ $('#concentration_unit').on('change', function() {
     $('.addon-volume').html(und);
     $("#col-2").html(cont + '<br>(' + und + ')' );
     
-    cont = "Instant Concentration";
-    und = $(this).val();
+    var cont = "Instant Concentration";
+    var und = $(this).val();
     $("#col-1").html(cont + '<br>(' + und + ')' );
 });
 $('#absorbing_tissue_measure_unit').on('change', function() {
