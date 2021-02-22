@@ -248,7 +248,7 @@ $("#load-button").click(function(){
 
 function validacao(){
     var flag = 0;
-    //Validacao coluna 0
+//     //Validacao coluna 0
 //     var col = $('#mytable').jexcel('getColumnData', 0);
 //     for(var i = 0 ; i < col.length - 1; i++){
 //         if(col[i] > col[i + 1]){
@@ -263,8 +263,8 @@ function validacao(){
 //             $("#help").fadeIn(1000);
 //             flag = 1;
 //             break;
-//         }
-    }
+//          }
+//     }
     //Validacao coluna 1
     col = $('#mytable').jexcel('getColumnData', 1);
     var valoresErrados = "";
