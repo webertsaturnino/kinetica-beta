@@ -249,21 +249,21 @@ $("#load-button").click(function(){
 function validacao(){
     var flag = 0;
     //Validacao coluna 0
-    var col = $('#mytable').jexcel('getColumnData', 0);
-    for(var i = 0 ; i < col.length - 1; i++){
-        if(col[i] > col[i + 1]){
-            //Mensagem de texto
-            var msg = "Sampling time error: Erro na linha " + (i+1);
-            $("#erroTabelaColuna0").html(msg); 
-            $("#erroTabelaColuna0").fadeIn(700, function(){
-                setTimeout(function(){ 
-                    $('#erroTabelaColuna0').fadeOut();
-                }, 5000);                
-            });
-            $("#help").fadeIn(1000);
-            flag = 1;
-            break;
-        }
+//     var col = $('#mytable').jexcel('getColumnData', 0);
+//     for(var i = 0 ; i < col.length - 1; i++){
+//         if(col[i] > col[i + 1]){
+//             //Mensagem de texto
+//             var msg = "Sampling time error: Erro na linha " + (i+1);
+//             $("#erroTabelaColuna0").html(msg); 
+//             $("#erroTabelaColuna0").fadeIn(700, function(){
+//                 setTimeout(function(){ 
+//                     $('#erroTabelaColuna0').fadeOut();
+//                 }, 5000);                
+//             });
+//             $("#help").fadeIn(1000);
+//             flag = 1;
+//             break;
+//         }
     }
     //Validacao coluna 1
     col = $('#mytable').jexcel('getColumnData', 1);
@@ -278,7 +278,7 @@ function validacao(){
     }
     if(valoresErrados != ""){
         //Mensagem de texto
-        var msg = "Instant concentration error: Valores errados nas linhas " + (valoresErrados);
+        var msg = "Instant concentration error" //: Valores errados nas linhas " + (valoresErrados);
         $("#erroTabelaColuna1").html(msg+"."); 
         $("#erroTabelaColuna1").fadeIn(700, function(){
             setTimeout(function(){ 
