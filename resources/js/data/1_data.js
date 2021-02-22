@@ -278,7 +278,7 @@ function validacao(){
     }
     if(valoresErrados != ""){
         //Mensagem de texto
-        var msg = "Instant concentration error" //: Valores errados nas linhas " + (valoresErrados);
+        var msg = "Instant concentration error"; //: Valores errados nas linhas " + (valoresErrados);
         $("#erroTabelaColuna1").html(msg+"."); 
         $("#erroTabelaColuna1").fadeIn(700, function(){
             setTimeout(function(){ 
